@@ -1,22 +1,27 @@
-import logo from './logo.svg';
+import React from 'react';
+
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import 'views/indexPage.js'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <Switch>
         {/* <Route path='/profile'>
           <ProfilePage />
         </Route> */}
         <Route path='/'>
-          <HomePage />
+          <indexPage />
         </Route>
-        <Route path='/home'> 
+        {/* <Route path='/home'> 
           <HomePage />
         </Route>
         <Route path='/journey'>
-          <AboutPage />
-        </Route>
+          <JourneyPage />
+        </Route> */}
+        </Switch>
       </Router>
     </div>
   );
