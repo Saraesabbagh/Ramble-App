@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -35,4 +36,61 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.button {
+  background-color: #0F2747;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    color: #FFF;
+   
+}
+
+.button:hover {
+    color: #95FFD4;
+}
+
+form {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+input {
+    background-color: #FFF;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
+    width: 50%;
+    border: none;
+    font-size: 16px;
+    padding: 24px;
+    box-sizing: border-box;
+    margin: 8px;
+    display: block;
+    align-items: center;
+}
+
+body {
+  background: linear-gradient(180deg, #D7E9F2 0%, rgba(99, 189, 234, 0) 100%);
+  background-repeat: no-repeat;
+}
+
+.mission-text {
+  position: absolute;
+  width: 1312px;
+  height: 535px;
+  left: 58px;
+  top: 805px;
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  text-align: center;
+
+  color: #081424;
 }
