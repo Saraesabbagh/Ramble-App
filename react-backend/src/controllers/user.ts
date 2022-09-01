@@ -1,4 +1,4 @@
-import User from "../models/user"
+import { User } from "../models/user"
 import { body, check, validationResult } from "express-validator";
 import { Request, Response, NextFunction } from "express";
 import { WriteError } from "mongodb";
