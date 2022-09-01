@@ -1,4 +1,4 @@
-import "./Page.css"
+
 import { Navbar } from "../atomic-components/Navbar";
 import React from "react";
 

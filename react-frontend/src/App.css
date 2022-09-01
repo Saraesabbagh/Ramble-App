@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -42,13 +43,36 @@
     border-radius: 10px;
     font-weight: 700;
     font-size: 18px;
-    padding: 32px;
+    padding: 10px;
     border: none;
     cursor: pointer;
     color: #FFF;
     margin: 32px 0;
 }
 
-.buttonx:hover {
+.button:hover {
     color: #95FFD4;
+}
+
+form {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+input {
+    background-color: #FFF;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
+    width: 50%;
+    border: none;
+    font-size: 16px;
+    padding: 24px;
+    box-sizing: border-box;
+    margin: 8px;
+    display: block;
+    align-items: center;
+}
+
+body {
+  background: linear-gradient(180deg, #D7E9F2 0%, rgba(99, 189, 234, 0) 100%);
 }
