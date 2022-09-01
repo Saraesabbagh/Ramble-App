@@ -4,9 +4,32 @@ import session from "express-session";
 import bodyParser from "body-parser";
 import path from "path";
 import bluebird from "bluebird";
+import flash from "express-flash"
+import cookieParser from "cookie-parser"
+
+
+// Controller (route Handlers)
+
+import * as userController from "./controllers/user"
+
 const app = express();
 const port = 3001;
 
+app.use(cookieParser());
+app.use(session({
+  key: "user_sid",
+  secret: "super_secret",
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    expires: 1200000,
+  }
+}));
+app.use(flash());
+
+app.use(express.json())
+app.use(bodyParser.json())
+app.use(session());
 app.use(express.static(path.join(__dirname, "/react-frontend")))
 
 const mongoDbUrl =  "mongodb://0.0.0.0/Ramble";
@@ -23,8 +46,7 @@ mongoose.connect(mongoDbUrl).then(
  * API Routes.
  */
 
- app.get("/api/", )
- app.post("/api/signup",  )
+ app.post("/api/signup", userController.saveUser )
 
 
 
