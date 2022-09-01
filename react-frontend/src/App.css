@@ -39,7 +39,7 @@
 }
 
 .button {
-  background-color: #6278f7;
+  background-color: #0F2747;
     border-radius: 10px;
     font-weight: 700;
     font-size: 18px;
@@ -47,7 +47,7 @@
     border: none;
     cursor: pointer;
     color: #FFF;
-    margin: 32px 0;
+   
 }
 
 .button:hover {
@@ -75,4 +75,22 @@ input {
 
 body {
   background: linear-gradient(180deg, #D7E9F2 0%, rgba(99, 189, 234, 0) 100%);
+  background-repeat: no-repeat;
+}
+
+.mission-text {
+  position: absolute;
+  width: 1312px;
+  height: 535px;
+  left: 58px;
+  top: 805px;
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  text-align: center;
+
+  color: #081424;
 }

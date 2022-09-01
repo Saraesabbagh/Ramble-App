@@ -1,12 +1,17 @@
 // import "./pages/IndexPage.css"
-import { Page } from "./Page.js"
+import { Page } from "./Page.js";
 import React from "react";
 
 export const IndexPage = () => {
+ 
    return (
     <div> 
-    <h1>hello</h1>
     <Page />
+      
+      <div className="hero"> 
+        {/* <img src={require("../images/JoggingCouple.png")} alt="jogging-couple" width="1000" /> */}
+      </div>
     </div>
    )
+   
 }
