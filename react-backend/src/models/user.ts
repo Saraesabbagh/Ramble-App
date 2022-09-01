@@ -45,9 +45,7 @@ UserSchema.pre('save', function (next) {
           if (hashError) {
             return next(hashError);
           }
-          console.log(hash);
           user.password = hash;
-          console.log(user.password);
           next();
         });
       }
@@ -57,6 +55,4 @@ UserSchema.pre('save', function (next) {
   }
 });
 
-const User = mongoose.model('User', UserSchema);
-
-export default User;
+export const User = mongoose.model('User', UserSchema);

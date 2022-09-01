@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.User = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const UserSchema = new mongoose_1.default.Schema({
@@ -36,6 +37,7 @@ const UserSchema = new mongoose_1.default.Schema({
     ],
 });
 UserSchema.pre('save', function (next) {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const user = this;
     if (this.isModified('password') || this.isNew) {
         bcrypt_1.default.genSalt(10, function (saltError, salt) {
@@ -47,9 +49,7 @@ UserSchema.pre('save', function (next) {
                     if (hashError) {
                         return next(hashError);
                     }
-                    console.log(hash);
                     user.password = hash;
-                    console.log(user.password);
                     next();
                 });
             }
@@ -59,6 +59,5 @@ UserSchema.pre('save', function (next) {
         return next();
     }
 });
-const User = mongoose_1.default.model('User', UserSchema);
-exports.default = User;
+exports.User = mongoose_1.default.model('User', UserSchema);
 //# sourceMappingURL=user.js.map
