@@ -32,9 +32,19 @@
     "typescript": "^4.8.2"
   },
   "dependencies": {
+    "body-parser": "^1.20.0",
     "express": "^4.17.1",
     "express-session": "^1.17.3",
     "mongodb": "^4.9.0",
-    "mongoose": "^6.5.4"
+    "mongoose": "^6.5.4",
+    "path": "^0.12.7"
+  },
+  "ava": {
+    "typescript": {
+      "rewritePaths": {
+        "src/": "dist/"
+      },
+      "compile": "tsc"
+    }
   }
 }
