@@ -16,7 +16,6 @@ const app = express();
 const port = 3001;
 
 app.use(cookieParser());
-app.use(flash());
 app.use(session({
   key: "user_sid",
   secret: "super_secret",
@@ -26,6 +25,8 @@ app.use(session({
     expires: 1200000,
   }
 }));
+app.use(flash());
+
 app.use(express.json())
 app.use(bodyParser.json())
 app.use(session());

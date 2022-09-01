@@ -23,7 +23,7 @@ export const saveUser = async (req: Request, res: Response, next: NextFunction):
   User.findOne({email: req.body.email}, (err, user) => {
     if (err) {return next(err)}
     if (user) {
-      req.flash("errors", {msg: "Account with that email address already exists."})
+      res.status(500)
     }
 
   })
