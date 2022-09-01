@@ -1,30 +1,28 @@
 import React from 'react';
 
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import 'views/indexPage.js'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { IndexPage } from './components/pages/IndexPage';
+import { NewUserPage } from './components/pages/NewUserPage';
 import './App.css';
+// import { Navbar } from './components/atomic-components/Navbar';
+// import { Page } from './components/pages/Page'
+
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Switch>
-        {/* <Route path='/profile'>
-          <ProfilePage />
-        </Route> */}
-        <Route path='/'>
-          <indexPage />
-        </Route>
-        {/* <Route path='/home'> 
-          <HomePage />
-        </Route>
-        <Route path='/journey'>
-          <JourneyPage />
-        </Route> */}
-        </Switch>
-      </Router>
-    </div>
-  );
+    <div>
+    <BrowserRouter>
+    <Routes>
+        
+          <Route path='/' element={<IndexPage />} />
+
+          <Route path='/user/new' element={<NewUserPage />} />
+          
+        
+      </Routes>
+   </BrowserRouter>     
+  </div> 
+ );
 }
 
 export default App;
