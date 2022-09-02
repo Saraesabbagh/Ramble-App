@@ -10,15 +10,8 @@ import { CallbackError } from "mongoose";
  */
 export const saveUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   // Validation checks
-  await check("email", "Email is not valid").isEmail().run(req);
-  await check("password", "Password must be at least 4 characters long").isLength({min: 4}).run(req);
-  const errors = validationResult(req)
- // If authentication fails
-
-  if (!errors.isEmpty()) {
-    res.redirect("/user/new")
-  }
-
+  // If authentication fails
+  console.log(req.body)
   const user = new User(req.body);
   User.findOne({email: req.body.email}, (err, user) => {
     if (err) {return next(err)}
