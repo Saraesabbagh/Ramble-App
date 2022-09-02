@@ -27,7 +27,11 @@
   color: white;
 }
 
-  .topnav button {
-    padding: 15px;
-    margin: none;
-  }
+.topnav button {
+  padding: 15px;
+  margin: none;
+}
+
+.btn-navbar {
+  color: red
+}

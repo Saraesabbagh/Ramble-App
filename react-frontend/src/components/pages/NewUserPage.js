@@ -40,14 +40,13 @@ export const NewUserPage = () => {
             <Page />
             <div>
             <form onSubmit = {whenSubmit}> 
-            <h2>Please Sign Up here!</h2>
-                <input name="firstName" placeholder="Write your first name" />
-                <input name="lastName" placeholder="Write your last name" />
+            <h2>Please SIGN UP here!</h2>
+                <input name="firstName" placeholder="First name" />
+                <input name="lastName" placeholder="Last name" />
                 <input name="email" type="email" placeholder="example@mail.com" />
-                <input name="password" type="password" placeholder="Write your password" />
+                <input name="password" type="password" placeholder="Password" />
                 <input onClick={navigateToLogin} className="button" type="submit" value="Sign up" />
             </form>
-            
             </div>
         </div>
    )

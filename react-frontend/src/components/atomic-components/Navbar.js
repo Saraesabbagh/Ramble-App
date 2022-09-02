@@ -14,13 +14,14 @@ export const Navbar = () => {
 
     return ( 
         <div className="topnav">
-            
+        
             <a href="/">Home</a>
             <a href="/mission">About us</a>
             <a href="/app">App</a>
-
-            <button onClick={navigateToLogin} className="button"> Login </button>
-            <button onClick={navigateToSignUp} className="button"> Sign Up </button>
+        
+            <button onClick={navigateToLogin} className="button"> LOGIN </button>
+            <button onClick={navigateToSignUp} className="button"> SIGN UP </button>
+            
         </div>
     )
 };
