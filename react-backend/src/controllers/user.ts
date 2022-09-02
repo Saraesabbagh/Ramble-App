@@ -1,3 +1,4 @@
+
 import { User } from '../models/user';
 import { body, check, validationResult } from 'express-validator';
 import { Request, Response, NextFunction } from 'express';
@@ -9,32 +10,25 @@ import bcrypt from 'bcrypt';
  * Login page.
  * @route POST /api/signup
  */
-export const saveUser = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-): Promise<void> => {
-  // Validation checks
-  // If authentication fails
+
+export const saveUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+
   console.log(req.body);
   const user = new User(req.body);
-  User.findOne({ email: req.body.email }, (err, user) => {
-    if (err) {
-      return next(err);
+
+  User.findOne({email: req.body.email}, (err, users) => {
+    if (err) {return next(err);}
+    if (users) {
+      console.log("Email exists already");
+      res.send(JSON.stringify({message: "Email exists already"}));
     }
-    if (user) {
-      res.status(500);
-    }
+    else {
+    user.save((err) => {
+      if (err) { return next(err);}
+      res.send(JSON.stringify({message: "User saved"}))
+    });}
   });
-  try {
-    await user.save();
-    res.status(200);
-    res.json(user);
-  } catch (err) {
-    console.log(err);
-    res.status(500);
-    res.redirect('/user/new');
-  }
+ 
 };
 
 export const validateUser = (
