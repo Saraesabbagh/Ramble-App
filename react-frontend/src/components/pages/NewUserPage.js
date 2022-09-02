@@ -1,15 +1,23 @@
 import { Page } from "./Page.js"
 import React from "react";
 import '../../App.css'
+import {useNavigate} from 'react-router-dom';
+
 
 export const NewUserPage = () => {
+    const navigate = useNavigate();
+    const navigateToLogin = () => {
+        // 👇️ navigate to do the login
+        navigate('/session/new');
+      };
+
     const whenSubmit = (event) => {
         event.preventDefault()
         const firstName = event.target.firstName
         const lastName = event.target.lastName
         const email = event.target.email
         const password = event.target.password
-
+        
         
         fetch('/api/signup', {
             method: 'POST',
@@ -20,9 +28,7 @@ export const NewUserPage = () => {
             
         })
         .then(response => console.log("RESPONSE JSON:       ", response.json()))
-        // .then(jsObject => {
-        //     callback (jsObject)
-        // })
+    
         .catch((error) => {
             console.error("Error", error)
         })
@@ -40,7 +46,7 @@ export const NewUserPage = () => {
                 <input name="lastName" placeholder="Write your last name" />
                 <input name="email" type="email" placeholder="example@mail.com" />
                 <input name="password" type="password" placeholder="Write your password" />
-                <input className= "button" type="submit" value="Sign up" /> 
+                <input onClick={navigateToLogin} className="button" type="submit" value="Sign up" />
             </form>
             
             </div>
