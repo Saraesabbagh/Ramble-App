@@ -20,24 +20,23 @@ const saveUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function*
     // If authentication fails
     console.log(req.body);
     const user = new user_1.User(req.body);
-    user_1.User.findOne({ email: req.body.email }, (err, user) => {
+    user_1.User.findOne({ email: req.body.email }, (err, users) => {
         if (err) {
             return next(err);
         }
-        if (user) {
-            res.status(500);
+        if (users) {
+            console.log("Email exists already");
+            res.send(JSON.stringify({ message: "Email exists already" }));
+        }
+        else {
+            user.save((err) => {
+                if (err) {
+                    return next(err);
+                }
+                res.send(JSON.stringify({ message: "User saved" }));
+            });
         }
     });
-    try {
-        yield user.save();
-        res.status(200);
-        res.json(user);
-    }
-    catch (err) {
-        console.log(err);
-        res.status(500);
-        res.redirect("/user/new");
-    }
 });
 exports.saveUser = saveUser;
 //# sourceMappingURL=user.js.map
