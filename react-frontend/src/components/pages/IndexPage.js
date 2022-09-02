@@ -1,4 +1,4 @@
-// import "./pages/IndexPage.css"
+import "./IndexPage.css"
 import { Page } from "./Page.js";
 import React from "react";
 
