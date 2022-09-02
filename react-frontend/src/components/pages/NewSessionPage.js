@@ -14,14 +14,14 @@ export const NewSessionPage = () => {
         const password = event.target.password
         
         fetch('/api/login', {
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({email: email.value, password: password.value})
             
         })
-        .then(response => console.log("RESPONSE JSON:       ", response.json()))
+        .then(response => console.log("RESPONSE JSON:", response.json()))
     
         .catch((error) => {
             console.error("Error", error)

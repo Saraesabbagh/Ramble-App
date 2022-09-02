@@ -19,6 +19,7 @@ function App() {
           <Route path='/user/new' element={<NewUserPage />} />
           <Route path='/session/new' element={<NewSessionPage />} />
           <Route path='/home' element={<HomePage />} /> 
+          {/* need to send props of user details into this home page. */}
           <Route path='/mission' element={<Mission />} />  
           <Route path='/app' element={<AppFunctionality />} />   
       </Routes>
