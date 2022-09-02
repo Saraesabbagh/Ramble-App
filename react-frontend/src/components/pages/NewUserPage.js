@@ -18,7 +18,6 @@ export const NewUserPage = () => {
         const email = event.target.email
         const password = event.target.password
         
-        
         fetch('/api/signup', {
             method: 'POST',
             headers: {
@@ -32,9 +31,9 @@ export const NewUserPage = () => {
         .catch((error) => {
             console.error("Error", error)
         })
-    }
         console.log('Form was submitted')
-
+    }
+    
     return (
         
         <div> 

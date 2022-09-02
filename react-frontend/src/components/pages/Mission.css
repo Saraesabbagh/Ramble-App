@@ -12,6 +12,20 @@
     width: 100%;
 }
 
+.app-hero {
+    display: flex;
+    flex-direction: column;
+    background-image: url("../images/cycle.png");
+    height: 80vh;
+    align-self: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
 .mission-text {
     position: absolute;
     width: 1312px;

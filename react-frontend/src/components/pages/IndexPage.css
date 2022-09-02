@@ -1,8 +1,8 @@
-.hero {
+.indexHero {
     display: flex;
     flex-direction: column;
     background-image: url("../images/JoggingCouple.png");
-    height: 100vh;
+    height: 80vh;
     align-self: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,3 +11,51 @@
     justify-content: center;
     width: 100%;
 }
+
+.indexHeroTextBox {
+    background-color: #D9D9D9;
+    opacity: 80%;
+    border-radius: 15px;
+    padding: 20px;
+    align-items: center;
+    
+}
+
+.indexHeroText {
+    color: #0F2747;
+    font-family: sans-serif;
+}
+
+.indexWhyCard {
+    width: 100%;
+    padding-right: 30px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 30px;
+  
+   
+  
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+  }
+
+  .cyclegroup{
+    border-radius: 30px;
+    margin-right: 50px;
+  }
+
+  .review1-column, .review2-column{
+    border-radius: 30px;
+    background-color: #5D97D1;
+    color: white;
+  }
