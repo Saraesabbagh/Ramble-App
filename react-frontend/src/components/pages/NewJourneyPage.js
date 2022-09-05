@@ -1,14 +1,14 @@
-
+import { DropDownList } from "../atomic-components/DropDownList";
 import { Page } from "../pages/Page";
 // import { Footer } from "../atomic-components/Footer";
 import React from "react";
 
 export const NewJourneyPage = () => {
-    
-    
-    
-    
-    
+    const disciplines = [
+        "Walking",
+        "Running",
+        "Cycling"
+    ]
     return (
         <div>
             <Page />
@@ -21,10 +21,9 @@ export const NewJourneyPage = () => {
                 <input name="startPoint" placeholder="Where will your journey start?" />
                 <input name="endPoint" type="text" placeholder="Where will your journey end?" />
                 <input className="button" type="submit" value="Generate Route" />
+                <DropDownList items={disciplines} />
             </form>
-            
             </div>
-
         </div>
     )
 }
