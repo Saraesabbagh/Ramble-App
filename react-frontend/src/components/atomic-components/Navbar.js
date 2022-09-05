@@ -13,6 +13,7 @@ export const Navbar = () => {
     }
 
     return ( 
+
         <div className="topnav">
         <ul>
             <li> <a href="/">Home</a> </li>
@@ -23,6 +24,7 @@ export const Navbar = () => {
                 <li><button onClick={navigateToSignUp} className="nav-button"> Sign up </button></li>
             </span>    
         </ul>    
+
         </div>
     )
 };

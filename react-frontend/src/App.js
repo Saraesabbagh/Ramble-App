@@ -7,8 +7,10 @@ import { NewSessionPage } from './components/pages/NewSessionPage';
 import { HomePage } from './components/pages/HomePage';
 import { Mission } from './components/pages/Mission';
 import { AppFunctionality } from './components/pages/AppFunctionality';
+import { NewJourneyPage } from './components/pages/NewJourneyPage';
 
 import './App.css';
+import { NewJourney } from './components/pages/NewJourneyPage';
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
           {/* need to send props of user details into this home page. */}
           <Route path='/mission' element={<Mission />} />  
           <Route path='/app' element={<AppFunctionality />} />   
+          <Route path='/journey/new' element={<NewJourneyPage />} /> 
       </Routes>
    </BrowserRouter>     
   </div> 
