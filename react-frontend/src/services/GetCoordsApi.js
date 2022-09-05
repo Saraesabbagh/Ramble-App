@@ -1,5 +1,5 @@
 
-const ApiKey = "AIzaSyCVwRHHdtd6XynKpgTNl4SQOM4jT_pTaGk";
+const ApiKey = "";
 
 export const GeoCooordsApi = async(placeId) => {
     const journeyPointCoordsUrl = `https://maps.googleapis.com/maps/api/geocode/json?${placeId}&key=${ApiKey}`
