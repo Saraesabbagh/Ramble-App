@@ -1,8 +1,8 @@
-
+import './DropDownList.css'
 export const DropDownList = (props) => {
     console.log(props.items)
     return (
-        <div>
+        <div className='dropdown'>
             <label>{props.label}</label>
             <select>
                 {props.items.map(item => {
