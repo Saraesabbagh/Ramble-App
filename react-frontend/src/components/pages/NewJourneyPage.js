@@ -2,18 +2,32 @@
 import { Page } from "../pages/Page";
 // import { Footer } from "../atomic-components/Footer";
 import React from "react";
+import { GeoCoordsApi } from "../../services/GetCoordsApi";
+import { GetPlaceIdApi } from "../../services/GetPlaceIdApi";
 
 export const NewJourneyPage = () => {
     
+    const whenSubmit = (event) => {
+        event.preventDefault()
+        const startPoint = event.target.startPoint
+        const endPoint = event.target.endPoint
+       
+        GetPlaceIdApi(startPoint);
+        console.log(startPoint)
+       GetPlaceIdApi(endPoint);
+        console.log(endPoint)
+
+        
+
     
     
-    
+    }
     
     return (
         <div>
             <Page />
             <div>
-            <form > 
+            <form onSubmit = {whenSubmit}> 
             <h2>What journey would you like to add?</h2>
                 <input name="title" placeholder="Give your Journey a title" />
                 <input name="description" type="text" placeholder="Give us a quick description of your Journey..." />
