@@ -1,4 +1,4 @@
-const ApiKey = "AIzaSyCVwRHHdtd6XynKpgTNl4SQOM4jT_pTaGk";
+const ApiKey = "";
 
 export const GeoCoordsApi = async(journeyPoint) => {
     const getPlaceURL = `https://maps.googleapis.com/maps/api/place/findplacefromtext/output?parameters`
