@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@types/cookie-session": "^2.0.44",
+    "@types/cors": "^2.8.12",
+    "@types/jsonwebtoken": "^8.5.9",
+    "cookie-session": "^2.0.0",
+    "cors": "^2.8.5",
+    "jsonwebtoken": "^8.5.1"
+  }
+}
