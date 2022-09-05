@@ -10,17 +10,12 @@ export const NewJourneyPage = () => {
 const whenSubmit = (event) => {
         event.preventDefault()
         const startPoint = event.target.startPoint
-        const endPoint = event.target.endPoint
+       
        
         GetPlaceIdApi(startPoint);
         console.log(startPoint)
-       GetPlaceIdApi(endPoint);
-        console.log(endPoint)
+      
 
-        
-
-    
-    
     }
     
     const disciplines = [
