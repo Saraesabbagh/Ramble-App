@@ -40,14 +40,13 @@
 
 .button {
   background-color: #0F2747;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 18px;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    color: #FFF;
-   
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  color: #FFF; 
 }
 
 .button:hover {
