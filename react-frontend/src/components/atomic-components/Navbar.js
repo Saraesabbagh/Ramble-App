@@ -13,12 +13,18 @@ export const Navbar = () => {
     }
 
     return ( 
-        <div className="topnav">   
-            <a href="/">Home</a>
-            <a href="/mission">About us</a>
-            <a href="/app">App</a>
-            <button onClick={navigateToLogin} className="button"> Login </button>
-            <button onClick={navigateToSignUp} className="button"> Sign Up </button>
+
+        <div className="topnav">
+        <ul>
+            <li> <a href="/">Home</a> </li>
+            <li> <a href="/mission">About us</a> </li>
+            <li> <a href="/app">App</a> </li>
+            <span className="nav-button-span">
+                <li><button onClick={navigateToLogin} className="nav-button"> Login</button></li>
+                <li><button onClick={navigateToSignUp} className="nav-button"> Sign up </button></li>
+            </span>    
+        </ul>    
+
         </div>
     )
 };
