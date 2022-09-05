@@ -1,0 +1,10 @@
+.homeList {
+    margin-right: 150px;
+    margin-left: 100px;
+    margin-top: 30px;
+    text-align: left;
+    background-color: #5D97D1;
+    padding: 5px;
+    border-radius: 20px;
+    color: white;
+}

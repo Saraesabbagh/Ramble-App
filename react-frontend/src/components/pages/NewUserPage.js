@@ -1,25 +1,54 @@
 import { Page } from "./Page.js"
 import React from "react";
 import '../../App.css'
+import {useNavigate} from 'react-router-dom';
+
 
 export const NewUserPage = () => {
+    const navigate = useNavigate();
+    const navigateToLogin = () => {
+        // 👇️ navigate to do the login
+        navigate('/session/new');
+      };
+
     const whenSubmit = (event) => {
         event.preventDefault()
+        const firstName = event.target.firstName
+        const lastName = event.target.lastName
+        const email = event.target.email
+        const password = event.target.password
+        
+        fetch('/api/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({firstName: firstName.value, lastName: lastName.value, email: email.value, password: password.value})
+            
+        })
+        .then(response => console.log("RESPONSE JSON:       ", response.json()))
+    
+        .catch((error) => {
+            console.error("Error", error)
+        })
         console.log('Form was submitted')
     }
+    
     return (
         
         <div> 
             <Page />
-            
+            <div>
             <form onSubmit = {whenSubmit}> 
             <h2>Please Sign Up here!</h2>
-                <input label="First Name" placeholder="Write your first name" />
-                <input label="Last Name" placeholder="Write your last name" />
-                <input label="Email" type="email" placeholder="example@mail.com" />
-                <input label="Password" type="password" placeholder="Write your password" />
-                <input className= "button" type="submit" value="Sign up" /> 
+                <input name="firstName" placeholder="Write your first name" />
+                <input name="lastName" placeholder="Write your last name" />
+                <input name="email" type="email" placeholder="example@mail.com" />
+                <input name="password" type="password" placeholder="Write your password" />
+                <input onClick={navigateToLogin} className="button" type="submit" value="Sign up" />
             </form>
+            
+            </div>
         </div>
    )
 }

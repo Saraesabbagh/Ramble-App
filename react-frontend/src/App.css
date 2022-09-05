@@ -74,23 +74,6 @@ input {
 }
 
 body {
-  background: linear-gradient(180deg, #D7E9F2 0%, rgba(99, 189, 234, 0) 100%);
+  background: linear-gradient(180deg, rgb(137, 207, 241) 15%, rgba(58, 169, 225, 0) 100%);
   background-repeat: no-repeat;
-}
-
-.mission-text {
-  position: absolute;
-  width: 1312px;
-  height: 535px;
-  left: 58px;
-  top: 805px;
-
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 44px;
-  text-align: center;
-
-  color: #081424;
 }
