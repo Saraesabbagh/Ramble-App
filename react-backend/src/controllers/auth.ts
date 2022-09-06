@@ -58,6 +58,7 @@ export const signIn = (req: Request, res: Response) => {
       console.log(req.session);
 
       res.status(200).send({
+
         message: 'Signin Successful',
         user: user,
       });

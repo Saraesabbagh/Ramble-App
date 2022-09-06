@@ -4,10 +4,8 @@ import "../../App.css";
 import { useNavigate } from "react-router-dom";
 
 export const NewSessionPage = () => {
-  const navigate = useNavigate();
-  // const navigateToHome = () => {
-  //   navigate("/home");
-  // };
+    const navigate = useNavigate();
+
   const whenSubmit = (event) => {
     event.preventDefault();
     const email = event.target.email;
@@ -21,6 +19,15 @@ export const NewSessionPage = () => {
       body: JSON.stringify({ email: email.value, password: password.value }),
     })
       .then((response) => console.log("RESPONSE JSON:", response.json()))
+      .then((json) => {
+        if(json.message === "Signin Succcesful!") {
+            window.alert("Welcome to Ramble!");
+            navigate("/home");
+        } else {
+            window.alert(json.message)
+        }
+
+      })
 
       .catch((error) => {
         console.error("Error", error);
@@ -34,7 +41,7 @@ export const NewSessionPage = () => {
         <input name="email" type="email" placeholder="example@mail.com" />
         <input name="password" type="password" placeholder="Password" />
         <input
-          // onClick={navigateToHome}
+
           className="button"
           type="submit"
           value="Log in"

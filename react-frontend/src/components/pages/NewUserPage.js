@@ -31,13 +31,13 @@ export const NewUserPage = () => {
     })
       .then((response) => response.json())
       .then((json) => {
-        if (json.message === "Success") {
-          // Navigate to Login
+        if (json.message === "User was registered successfully!") {
+          window.alert("You have successfully signed up!");
+          navigate("/session/new");
         } else {
-          // Users email is already in use
+          window.alert(json.message)
         }
       })
-
       .catch((error) => {
         console.error("Error", error);
       });
