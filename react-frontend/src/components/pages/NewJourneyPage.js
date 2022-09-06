@@ -1,24 +1,49 @@
 import { DropDownList } from "../atomic-components/DropDownList";
 import { Page } from "../pages/Page";
+import {useNavigate} from 'react-router-dom';
 // import { Footer } from "../atomic-components/Footer";
 import React from "react";
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
-import { GeoCoordsApi } from "../../services/GetCoordsApi";
-import { GetPlaceIdApi } from "../../services/GetPlaceIdApi";
-import { GetMap } from "../atomic-components/getMap";
+
 
 export const NewJourneyPage = () => {
     
-const whenSubmit = (event) => {
-        // event.preventDefault()
-        // const startPoint = event.target.startPoint
-        // // add endpoint      
-       
-        // GeoCoordsApi(startPoint);
-        // console.log(startPoint)
-      
+    const navigate = useNavigate();
+    const navigateToHome = () => {
+        navigate('/home');
+      };
 
+      const saveRoute = (event) => {
+      event.preventDefault()
+      const discipline = event.target.discipline
+      const title = event.target.title
+      const description= event.target.description
+      const startTime = event.target.startTime
+      const startPoint = event.target.startPoint
+      const endPoint = event.targt.endPoint
+
+      fetch('/api/save_route', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body:JSON.stringify({discipline: discipline.value, title: title.value, description: description.value, startTime: startTime.value, startPoint: startPoint.value, endPoint:endPoint.value })
+      })
+      .then(response => response.json())
+      .catch((error) => {
+        console.error("Error", error)
+      })
     }
+
+    const generateRoute = (event)=> {
+        //use an api to generate coords, send them to backend, recieve a route back that can be displayed as an image.
+
+
+        fetch('api/generate_route', {
+            method: 'GET'
+        })
+    }
+
+
     
     const disciplines = [
         "Walking",
@@ -26,15 +51,15 @@ const whenSubmit = (event) => {
         "Cycling"
     ]
 
-    const render = (Status) => {
-        return <h1>{Status}</h1>;
-    };
+    // const render = (Status) => {
+    //     return <h1>{Status}</h1>;
+    // };
 
     return (
         <div>
             <Page />
             <div>
-            <form onSubmit = {whenSubmit}> 
+            <form onSubmit = {generateRoute}> 
             <h2>What journey would you like to add?</h2>
                 <DropDownList name="discipline" items={disciplines}/>
                 <input name="title" placeholder="Give your Journey a title" />
@@ -43,13 +68,11 @@ const whenSubmit = (event) => {
                 <input name="startPoint" placeholder="Where will your journey start?" />
                 <input name="endPoint" type="text" placeholder="Where will your journey end?" />
                 <input className="button" type="submit" value="Generate Route" />
+                <input onClick={saveRoute}className="button" type="submit" value="Save Route" />
+                <input onClick={navigateToHome}className="button" type="submit" value="Go to Routes" />
             </form>
             </div>
-            <Wrapper apiKey={"AIzaSyCVwRHHdtd6XynKpgTNl4SQOM4jT_pTaGk"} render={render} >
-                
-                <GetMap />
- 
-            </Wrapper>
+           
         </div>
     )
 }
