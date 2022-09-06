@@ -8,3 +8,9 @@
     border-radius: 20px;
     color: white;
 }
+
+.profile-pic{
+    border-radius: 60px;
+    margin-right: 60%;
+    padding: 30px;
+}

@@ -24,6 +24,13 @@ export const Profile = () => {
                     )
                 }
             })}
+
+            {/* First card with profile picture and bio */}
+            <div className='column'>
+              <div className='map-column'>
+                <img className="profile-pic" src={require("../images/kate.png")} alt="white_woman" width="250" />
+              </div>
+            </div>
                 
            
         </div>
