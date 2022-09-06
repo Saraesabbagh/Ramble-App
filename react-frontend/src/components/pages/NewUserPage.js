@@ -58,7 +58,7 @@ export const NewUserPage = () => {
             type="password"
             placeholder="Write your password"
           />
-          <input className="button" type="submit" value="Sign up" />
+          <input className="button" type="Submit" value="Sign up" />
         </form>
       </div>
     </div>

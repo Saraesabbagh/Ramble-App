@@ -1,7 +1,7 @@
 .topnav{
     background-color:#5D97D1 ;
     width: 100%;
-    padding: 20px;
+    padding: 30px;
 }
 
 
@@ -27,7 +27,39 @@
   color: white;
 }
 
-  .topnav button {
-    padding: 15px;
-    margin: none;
-  }
+.topnav button {
+  padding: 15px;
+  margin: none;
+}
+
+.btn-navbar {
+  color: red
+}
+
+ul {
+  list-style: none;
+  display: inline;
+}
+
+li {
+  display: inline;
+}
+
+.nav-button {
+  background-color: #0F2747;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 17px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  color: #FFF;
+  margin-right: 10px;
+  margin-top: 15px
+}
+
+.nav-button-span {
+  float: right;
+  position: absolute; top: 0; right: 0;
+  margin-right: 150px;
+}
