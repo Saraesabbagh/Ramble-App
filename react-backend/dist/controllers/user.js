@@ -8,9 +8,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.saveUser = void 0;
+exports.validateUser = exports.saveUser = void 0;
 const user_1 = require("../models/user");
+const bcrypt_1 = __importDefault(require("bcrypt"));
 /**
  * Login page.
  * @route POST /api/signup
@@ -31,10 +35,30 @@ const saveUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function*
                 if (err) {
                     return next(err);
                 }
-                res.send(JSON.stringify({ message: "User saved" }));
+                res.send(JSON.stringify({ message: "Success" }));
             });
         }
     });
 });
 exports.saveUser = saveUser;
+const validateUser = (req, res, next) => {
+    user_1.User.findOne({ email: req.body.email }, (err, user) => {
+        if (err) {
+            return next(err);
+        }
+        bcrypt_1.default.compare(req.body.password, user.password, function (err, isMatch) {
+            if (err) {
+                return next(err);
+            }
+            if (isMatch) {
+                return user;
+                // check with frontend what is best to return
+            }
+            else {
+                res.redirect('/session/new');
+            }
+        });
+    });
+};
+exports.validateUser = validateUser;
 //# sourceMappingURL=user.js.map

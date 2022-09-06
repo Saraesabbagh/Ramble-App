@@ -50,6 +50,7 @@ export const signIn = (req: Request, res: Response) => {
 
       req.session.token = token;
       res.status(200).send({
+        message: 'Signin Succcesful'
         id: user._id,
         email: user.email,
       });
