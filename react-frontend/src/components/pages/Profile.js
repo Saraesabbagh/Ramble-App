@@ -20,19 +20,36 @@ export const Profile = () => {
             {users.map((user) => {
                 if(user.id === 1){
                     return (
-                        user.title
+                        <h1>{user.title}</h1>
                     )
                 }
             })}
 
             {/* First card with profile picture and bio */}
-            <div className='column'>
-              <div className='map-column'>
-                <img className="profile-pic" src={require("../images/kate.png")} alt="white_woman" width="250" />
-              </div>
+            <div className='row'>
+                {/* profile picture */}
+                <div className='column'>
+                    <div className='map-column'>
+                        <img className="profile-pic" src={require("../images/kate.png")} alt="white_woman" width="250" />
+                    </div>
+                </div>
+
+                {/* profile description */}
+                <div className='column'>
+                    <div className='map-column'>
+                        <p className="description">Hi I'm Kate, I love walking, cycling. Apart from those I spend the rest of my time coding and doing magic 🪄.</p>   
+                    </div>
+                </div>  
             </div>
-                
-           
+
+            <h1>Journeys I've done</h1>
+            {users.map((user) => {
+                if(user.id === 1){
+                    return (
+                        <p>{user.journeys}</p>
+                    )
+                }
+            })}
         </div>
     )
 }
