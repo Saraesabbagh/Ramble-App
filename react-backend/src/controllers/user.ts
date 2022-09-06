@@ -7,7 +7,7 @@ import bcrypt from "bcrypt";
 
 /**
  * Login page.
- * @route POST /api/signup
+ * @route GET /api/user/details
  */
 
 export const getDetails = async (
