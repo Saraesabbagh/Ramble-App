@@ -57,12 +57,9 @@ export const HomePage = () => {
                       <p>End location: {journey.endPoint}</p>
                       <button className="button" href="/journey/id">Find out more</button>
                     </div>
-              
             </div>
           </div>
         </div>
             )})}
-          
-            {/* add a button with request to join */}
             </div>
       )}
