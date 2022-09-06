@@ -1,7 +1,8 @@
 
 <img align="right" src="react-frontend/src/components/images/logo.png"  width="100">
+
 # Ramble Web App
-<img src="https://img.shields.io/badge/Jest-323330?style=for-the-badge&logo=Jest&logoColor=white"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge"> <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"> <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
+<img src="https://img.shields.io/badge/Jest-323330?style=for-the-badge&logo=Jest&logoColor=white"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge"> <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"> <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"> <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white">
 
 ***
 Ramble helps athletes or people who like to exercise to find someone to exercise together.
@@ -11,8 +12,11 @@ We are here to help you find a partner for these activities and make your journe
 <img src="http://ForTheBadge.com/images/badges/built-by-developers.svg">
 
 <a href="https://github.com/karolina-codes"> Karolina Joksaite</a>
+
 <a href ="https://github.com/ParisMonson"> Paris Monson </a>
+
 <a href="https://github.com/Saraesabbagh" >Sara Sabbagh</a>
+
 <a href="https://github.com/taybenca">Tayanne Bencardino</a>
 ***
 

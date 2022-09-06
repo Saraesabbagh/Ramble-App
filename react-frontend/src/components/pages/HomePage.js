@@ -1,9 +1,21 @@
 import "./HomePage.css";
 import { Page } from "./Page.js";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 
 export const HomePage = () => {
+  const [journeys, setJourneys] = useState([]);
+  
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/todos') //change this for backend url like '/api/signup'
+      .then(response => response.json())
+      .then(json => setJourneys(json))
+      .catch((err) => {
+        console.log(err.message);
+      })
+  }, [])
+  
+    
    return (
     <div> 
         <Page />
@@ -15,35 +27,39 @@ export const HomePage = () => {
                 <button className="button">Filter</button>
             </div>
         </div>
+
+      {journeys.map((journey) => {
+        return (
         <div className="homeList">
-        <div className='row'>
+          <div className='row'>
+            {/* image card */}
             <div className='column'>
               <div className='map-column'>
-
-              <img className="cyclegroup" src={require("../images/samplemap.png")} alt="map" width="250" />
-             
-
+                <img className="cyclegroup" src={require("../images/samplemap.png")} alt="map" width="250" />
               </div>
             </div>
-            <div className='column'>
-              <div className='text-column'>
 
-              <h3>Walk with kate</h3>
-                <p>Date and Time: </p>
-                <p>Location: </p>
-                <p>Duration: </p>
-                <p>Find out more about this Journey
-                <p><a className="button" href="/journey/id">here</a></p>
-                </p>
-
-                
+            {/* description and button card */}
+              <div className='column'>
+                <div className='map-column'>
+                <button className="button" href="/journey/id">Join now!</button>
+                <p>{journey.discription}</p>
+                </div>
               </div>
+
+            {/* text card */}
+                  <div className='column'>
+                    <div className= 'text-column'>
+                      <h3>{journey.title}</h3>
+                      <p>{journey.discipline}</p>
+                      <p>Date and Time: {journey.startTime}</p>
+                      <p>Start location:{journey.startPoint} </p>
+                      <p>End location: {journey.endPoint}</p>
+                      <button className="button" href="/journey/id">Find out more</button>
+                    </div>
             </div>
           </div>
         </div>
-    
-
-    </div>
-   )
-   
-}
+            )})}
+            </div>
+      )}
