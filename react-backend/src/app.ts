@@ -3,19 +3,23 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import path from 'path';
 import bluebird from 'bluebird';
-import flash from 'express-flash';
 import cookieSession from 'cookie-session';
 import cors from 'cors';
 
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-// Controller (route Handlers)
+// Middleware Functions
 
-import * as userController from './controllers/user';
+import { checkDuplicateEmail } from './middlewares/verifySignUp';
+
+// Controller
+
+import * as authController from './controllers/auth';
 
 const app = express();
-const port = 3001;
+const port = 3000;
+
 const corsOptions = {
   origin: 'http://localhost:3001',
 };
@@ -32,7 +36,10 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '/react-frontend')));
+
+app.use(
+  express.static(path.join(__dirname, '..', '..', 'react-frontend/build'))
+);
 
 const mongoDbUrl = 'mongodb://0.0.0.0/Ramble';
 mongoose.Promise = bluebird;
@@ -49,11 +56,18 @@ mongoose
     // process.exit();
   });
 
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept');
+  next();
+});
+
 /**
  * API Routes.
  */
 
-app.post('/api/signup', userController.saveUser);
+app.post('/api/signup', checkDuplicateEmail, authController.signUp);
+app.post('/api/signin', authController.signIn);
+app.post('/api/signOut', authController.signOut);
 
 /**
  * Handles all other routes
