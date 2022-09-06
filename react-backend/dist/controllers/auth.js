@@ -48,13 +48,15 @@ const signIn = (req, res) => {
         if (!validPassword) {
             return res.status(401).send({ message: 'Invalid Password!' });
         }
-        const token = jsonwebtoken_1.default.sign({ id: user.id }, auth_config_1.config.secret, {
+        jsonwebtoken_1.default.sign({ id: user.id }, auth_config_1.config.secret, {
             expiresIn: 86400,
+        }, (err, token) => {
+            req.session.token = token;
         });
-        req.session.token = token;
+        console.log(req.session);
         res.status(200).send({
-            id: user._id,
-            email: user.email,
+            message: 'Signin Successful',
+            user: user,
         });
     });
 };

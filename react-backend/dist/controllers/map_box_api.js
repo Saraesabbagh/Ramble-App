@@ -14,10 +14,10 @@ exports.getWalkingRoute = void 0;
  *
  * @route GET /api/route
  */
-const api_key = "pk.eyJ1IjoicG1vbnNvbjEiLCJhIjoiY2w3b2x5eGd1MDhldjN1bzc2bHdrZWt4aCJ9.j1NGCKtR_vtfwz9JdVGi3A";
+const api_key = process.env.MAPBOX_API;
 const getWalkingRoute = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    const start = req.body.start_coordinates;
-    const end = req.body.end_coordinates;
+    const start = Array.from(req.body.start_coordinates);
+    const end = Array.from(req.body.end_coordinates);
     const discipline = req.body.discipline;
     const URL = `https://api.mapbox.com/directions/v5/mapbox/${discipline}/${start[0]},${start[1]};${end[0]},${end[1]}?geometries=polyline&overview=full&annotations=duration&access_token=${api_key}`;
     fetch(URL)

@@ -10,6 +10,7 @@ export const NewSessionPage = () => {
     event.preventDefault();
     const email = event.target.email;
     const password = event.target.password;
+    
 
     fetch("/api/signin", {
       method: "POST",
@@ -18,17 +19,18 @@ export const NewSessionPage = () => {
       },
       body: JSON.stringify({ email: email.value, password: password.value }),
     })
-      .then((response) => console.log("RESPONSE JSON:", response.json()))
-      .then((json) => {
-        if(json.message === "Signin Succcesful!") {
-            window.alert("Welcome to Ramble!");
-            navigate("/home");
-        } else {
-            window.alert(json.message)
-        }
-
-      })
-
+      .then((response) => {
+        console.log(response);
+        if(response.message === "Signin Succcesful!") {
+        window.alert("Welcome to Ramble!");
+        localStorage.setItem("session",response.user);
+        console.log(localStorage.session);
+        navigate("/home");
+    } else {
+        window.alert(response.message)
+    }} )
+      
+        
       .catch((error) => {
         console.error("Error", error);
       });
