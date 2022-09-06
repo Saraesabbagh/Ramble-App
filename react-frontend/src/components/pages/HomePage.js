@@ -28,34 +28,41 @@ export const HomePage = () => {
             </div>
         </div>
 
+      {journeys.map((journey) => {
+        return (
         <div className="homeList">
           <div className='row'>
+            {/* image card */}
             <div className='column'>
               <div className='map-column'>
                 <img className="cyclegroup" src={require("../images/samplemap.png")} alt="map" width="250" />
               </div>
             </div>
 
-          <div className='column'>
-            <div className='text-column'>
-            {/* generate all the routes in the database */}
-            {/* add a button with request to join */}
-            {journeys.map((journey) => {
-              return (
-                <div>
-                  <h3>Walk with kate{journey.title}</h3>
-                  <p>Date and Time: {journey.startTime}</p>
-                  <p>Location:{journey.startPoint} </p>
-                  <p>Duration: {journey.likes.length}</p>
-                  <p>Find out more about this Journey</p>
-                  <p><a className="button" href="/journey/id">here</a></p>
+            {/* description and button card */}
+              <div className='column'>
+                <div className='map-column'>
+                <button className="button" href="/journey/id">Join now!</button>
+                <p>{journey.discription}</p>
                 </div>
-              )
-              })}
+              </div>
+
+            {/* text card */}
+                  <div className='column'>
+                    <div className= 'text-column'>
+                      <h3>{journey.title}</h3>
+                      <p>{journey.discipline}</p>
+                      <p>Date and Time: {journey.startTime}</p>
+                      <p>Start location:{journey.startPoint} </p>
+                      <p>End location: {journey.endPoint}</p>
+                      <button className="button" href="/journey/id">Find out more</button>
+                    </div>
+              
             </div>
           </div>
         </div>
-      </div>
-    </div>
-   )
-}
+            )})}
+          
+            {/* add a button with request to join */}
+            </div>
+      )}
