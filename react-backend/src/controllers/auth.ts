@@ -6,6 +6,8 @@ import bcrypt from 'bcrypt';
 
 export const signUp = (req, res) => {
   const user = new User({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
     email: req.body.email,
     password: req.body.password,
   });
@@ -20,9 +22,10 @@ export const signUp = (req, res) => {
 };
 
 export const signIn = (req: Request, res: Response) => {
-  User.findOne({
-    email: req.body.email,
-  }),
+  User.findOne(
+    {
+      email: req.body.email,
+    },
     (err, user) => {
       if (err) {
         res.status(500).send({ message: err });
@@ -44,12 +47,14 @@ export const signIn = (req: Request, res: Response) => {
       const token = jwt.sign({ id: user.id }, config.secret, {
         expiresIn: 86400,
       });
+
       req.session.token = token;
       res.status(200).send({
         id: user._id,
         email: user.email,
       });
-    };
+    }
+  );
 };
 
 export const signOut = async (
