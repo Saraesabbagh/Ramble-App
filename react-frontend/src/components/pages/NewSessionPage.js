@@ -34,9 +34,9 @@ export const NewSessionPage = () => {
         <div> 
             <Page />
             <form onSubmit = {whenSubmit}> 
-            <h2>Please log in</h2>
-                <input label="Email" type="email" placeholder="example@mail.com" />
-                <input label="Password" type="password" placeholder="Write your password" />
+            <h2>LOGIN</h2>
+                <input name="Email" type="email" placeholder="example@mail.com" />
+                <input name="Password" type="password" placeholder="Password" />
                 <input onClick={navigateToHome} className= "button" type="submit" value="Log in" /> 
             </form>
         </div>
