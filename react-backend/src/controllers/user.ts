@@ -1,36 +1,25 @@
-
-import { User } from '../models/user';
-import { body, check, validationResult } from 'express-validator';
-import { Request, Response, NextFunction } from 'express';
-import { WriteError } from 'mongodb';
-import { CallbackError } from 'mongoose';
-import bcrypt from 'bcrypt';
+import { User } from "../models/user";
+import { body, check, validationResult } from "express-validator";
+import { Request, Response, NextFunction } from "express";
+import { WriteError } from "mongodb";
+import { CallbackError } from "mongoose";
+import bcrypt from "bcrypt";
 
 /**
  * Login page.
  * @route POST /api/signup
  */
 
-export const saveUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-
-  console.log(req.body);
-  const user = new User(req.body);
-
-  User.findOne({ email: req.body.email }, (err, users) => {
+export const getDetails = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  User.findOne({ email: req.body.id }, (err, user) => {
     if (err) {
       return next(err);
     }
-    if (users) {
-      console.log("Email exists already");
-      res.send(JSON.stringify({ message: "Email exists already" }));
-    } else {
-      user.save((err) => {
-        if (err) {
-          return next(err);
-        }
-        res.send(JSON.stringify({ message: "Success" }));
-      });
-    }
+    res.send(JSON.stringify(user));
   });
 };
 
@@ -53,9 +42,8 @@ export const validateUser = (
         return user;
         // check with frontend what is best to return
       } else {
-        res.redirect('/session/new');
+        res.redirect("/session/new");
       }
     });
   });
 };
-
