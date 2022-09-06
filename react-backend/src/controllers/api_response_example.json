@@ -1,0 +1,57 @@
+{
+  "routes": [
+    {
+      "geometry": "isvwF|b}bMiAxD???@?B@?CLdBfAJFr@d@|@j@JFDB~A`ANHJF`B`AHDHFbBbAJHJF|A~@JHJF`B`ALHJFbBdALFJHbBbALHLHjBjAJF~BtAnBlALHJFbBfALHLHvCdBNHHFhDrBNJHDbCzARLJF`Al@FBRLNJlBlALFZP|@f@b@V\\XXVrAxAp@v@DDf@j@LJtA~ANNHHzA|AJLNNx@|@JJHDFBD@LBl@@bABJ@l@@N?l@@R@r@@d@@\\@B?\\B`@Fb@Jp@L`@HFB`ARRBj@HdBNfCLH@J@D?ZBd@FTBf@DZCLNn@Z^Tj@\\NHPLLHPJNJ^^b@^LLNLTTz@v@LLHFCVIvAInAKjAAPCX?@IJG`AAPARAPMfBCX@d@NNxA`BFHHHjBtBp@r@JLDFb@h@h@p@nArAHJP@nFp@JB`Cx@D@RDNDhBf@D@b@PFDTRDDHJLRFN`@`ABFv@pBFPJNHPLTT^jBpALHRL~@j@FHDBx@t@LJJJFF`CrBHJHFzAzAJHvBnBNLJJ|@z@`@^LLJHVTjBnBNLDFh@h@t@p@HHBBDFfA`BLVGRq@|B_CvHOKh@_BBI",
+      "legs": [
+        {
+          "steps": [],
+          "summary": "",
+          "weight": 1886.2,
+          "duration": 1487.6,
+          "annotation": {
+            "duration": [
+              79, 0.6, 0.7, 1.1, 0.9, 5.5, 15.5, 1.9, 8, 9.3, 1.9, 0.9, 14.2,
+              2.5, 1.6, 14.7, 1.6, 1.6, 14.9, 1.8, 1.8, 14.1, 1.9, 1.9, 14.6,
+              2.2, 1.7, 15.1, 2.1, 1.9, 15, 2.3, 1.9, 16.4, 1.9, 19.1, 16.8,
+              2.2, 1.7, 15.2, 2.2, 2.1, 22.7, 2.3, 1.6, 25.5, 2.4, 1.6, 20, 3,
+              1.9, 9.9, 1.1, 2.8, 2.5, 16.8, 1.9, 4.3, 9.2, 5.4, 4.9, 4.1, 14.6,
+              8.8, 0.9, 7, 2.1, 15.1, 2.6, 1.7, 15.4, 2.3, 2.6, 9.9, 2.2, 1.4,
+              1.1, 0.8, 2, 6.1, 9.2, 1.5, 6.2, 2.2, 6, 2.7, 6.9, 5.2, 3.9, 0.8,
+              4, 4.6, 4.9, 6.9, 4.7, 1, 9.1, 2.7, 6, 13.6, 18.3, 1.2, 1.7, 0.6,
+              3.7, 5.4, 2.9, 5.5, 3.6, 2.6, 7.1, 4.8, 6.6, 2.3, 2.8, 2.1, 2.6,
+              2.7, 5.4, 5.7, 2.4, 2.5, 3.8, 9.9, 2.2, 1.5, 2.4, 9.1, 8.1, 7.8,
+              2, 2.5, 0.3, 1.8, 6.9, 1.7, 2, 1.9, 10.6, 2.7, 3.9, 2.5, 15.7,
+              1.5, 1.6, 18.8, 8.4, 2.2, 1.1, 6.5, 7.4, 13.6, 1.8, 2.2, 32.5,
+              1.7, 18.2, 0.8, 2.7, 2.4, 14.6, 0.9, 5, 1.2, 3.6, 1.1, 1.9, 2.6,
+              2, 8.1, 1.1, 13.7, 2, 2.3, 2.3, 3, 4.2, 16.7, 2.2, 2.9, 9.7, 1.6,
+              0.8, 9.6, 2.2, 1.8, 1.5, 20.8, 1.9, 1.5, 15.3, 2, 19.7, 2.4, 2,
+              10.3, 5.7, 2.1, 2.1, 3.9, 18.3, 2.5, 1.2, 6.9, 8.8, 1.8, 0.7, 1,
+              13.9, 3, 2.3, 14.3, 36.1, 9.4, 42.6, 4
+            ]
+          },
+          "distance": 5248.4
+        }
+      ],
+      "weight_name": "cyclability",
+      "weight": 1886.2,
+      "duration": 1487.6,
+      "distance": 5248.4
+    }
+  ],
+  "waypoints": [
+    {
+      "distance": 3.773798134732676,
+      "name": "",
+      "location": [-74.046073, 40.753331]
+    },
+    {
+      "distance": 12.994677311278416,
+      "name": "",
+      "location": [-74.077099, 40.719227]
+    }
+  ],
+  "code": "Ok",
+  "uuid": "oUw6E6atRlxLNqxriHgR6RHPOLteiMFINAwtF4oI-uMrNKrgKihfmA=="
+}
+
+"https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-a+9ed4bd(-74.046073, 40.753331),pin-s-b+000(-74.077099, 40.719227),path-5+f44-0.5(isvwF%7Cb%7DbMiAxD%3F%3F%3F%40%3FB%40%3FCLdBfAJFr%40d%40%7C%40j%40JFDB~A%60ANHJF%60B%60AHDHFbBbAJHJF%7CA~%40JHJF%60B%60ALHJFbBdALFJHbBbALHLHjBjAJF~BtAnBlALHJFbBfALHLHvCdBNHHFhDrBNJHDbCzARLJF%60Al%40FBRLNJlBlALFZP%7C%40f%40b%40V%5CXXVrAxAp%40v%40DDf%40j%40LJtA~ANNHHzA%7CAJLNNx%40%7C%40JJHDFBD%40LBl%40%40bABJ%40l%40%40N%3Fl%40%40R%40r%40%40d%40%40%5C%40B%3F%5CB%60%40Fb%40Jp%40L%60%40HFB%60ARRBj%40HdBNfCLH%40J%40D%3FZBd%40FTBf%40DZCLNn%40Z%5ETj%40%5CNHPLLHPJNJ%5E%5Eb%40%5ELLNLTTz%40v%40LLHFCVIvAInAKjAAPCX%3F%40IJG%60AAPARAPMfBCX%40d%40NNxA%60BFHHHjBtBp%40r%40JLDFb%40h%40h%40p%40nArAHJP%40nFp%40JB%60Cx%40D%40RDNDhBf%40D%40b%40PFDTRDDHJLRFN%60%40%60ABFv%40pBFPJNHPLTT%5EjBpALHRL~%40j%40FHDBx%40t%40LJJJFF%60CrBHJHFzAzAJHvBnBNLJJ%7C%40z%40%60%40%5ELLJHVTjBnBNLDFh%40h%40t%40p%40HHBBDFfA%60BLVGRq%40%7CB_CvHOKh%40_BBI)/auto/500x300?access_token=pk.eyJ1IjoicG1vbnNvbjEiLCJhIjoiY2w3b2x5eGd1MDhldjN1bzc2bHdrZWt4aCJ9.j1NGCKtR_vtfwz9JdVGi3A"

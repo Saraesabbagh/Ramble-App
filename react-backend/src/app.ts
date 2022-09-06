@@ -9,7 +9,9 @@ import cors from 'cors';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
+
 // Middleware Functions
+
 
 import { checkDuplicateEmail } from './middlewares/verifySignUp';
 
@@ -42,6 +44,7 @@ app.use(
 );
 
 const mongoDbUrl = 'mongodb://0.0.0.0/Ramble';
+
 mongoose.Promise = bluebird;
 
 mongoose
@@ -61,17 +64,27 @@ app.use(function (req, res, next) {
   next();
 });
 
+
 /**
  * API Routes.
  */
+
+
+// app.post("/api/signup", userController.saveUser);
+
+app.post("/api/save_route");
+
+app.get("/api/generate_route");
 
 app.post('/api/signup', checkDuplicateEmail, authController.signUp);
 app.post('/api/signin', authController.signIn);
 app.post('/api/signOut', authController.signOut);
 
+
 /**
  * Handles all other routes
  */
+
 
 app.get('*', (req, res) => {
   res.sendFile(
