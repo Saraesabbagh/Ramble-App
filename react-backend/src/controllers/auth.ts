@@ -44,15 +44,23 @@ export const signIn = (req: Request, res: Response) => {
         return res.status(401).send({ message: 'Invalid Password!' });
       }
 
-      const token = jwt.sign({ id: user.id }, config.secret, {
-        expiresIn: 86400,
-      });
+      jwt.sign(
+        { id: user.id },
+        config.secret,
+        {
+          expiresIn: 86400,
+        },
+        (err, token) => {
+          req.session.token = token;
+        }
+      );
 
-      req.session.token = token;
+      console.log(req.session);
+
       res.status(200).send({
-        message: 'Signin Succcesful'
-        id: user._id,
-        email: user.email,
+
+        message: 'Signin Successful',
+        user: user,
       });
     }
   );
