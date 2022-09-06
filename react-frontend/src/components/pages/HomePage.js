@@ -43,10 +43,10 @@ export const HomePage = () => {
             {journeys.map((journey) => {
               return (
                 <div>
-                  <h3>Walk with kate{journey.id}</h3>
-                  {/* <p>Date and Time: {journey.created_at}</p>
-                  <p>Location:{journey.user.handle} </p>
-                  <p>Duration: {journey.likes.length}</p> */}
+                  <h3>Walk with kate{journey.title}</h3>
+                  <p>Date and Time: {journey.startTime}</p>
+                  <p>Location:{journey.startPoint} </p>
+                  <p>Duration: {journey.likes.length}</p>
                   <p>Find out more about this Journey</p>
                   <p><a className="button" href="/journey/id">here</a></p>
                 </div>
