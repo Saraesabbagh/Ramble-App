@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 export const NewSessionPage = () => {
   const navigate = useNavigate();
-  const navigateToHome = () => {
-    navigate("/home");
-  };
+  // const navigateToHome = () => {
+  //   navigate("/home");
+  // };
   const whenSubmit = (event) => {
     event.preventDefault();
     const email = event.target.email;
@@ -25,18 +25,16 @@ export const NewSessionPage = () => {
       .catch((error) => {
         console.error("Error", error);
       });
-
-    console.log("You logged in");
   };
   return (
     <div>
       <Page />
       <form onSubmit={whenSubmit}>
         <h2>LOGIN</h2>
-        <input name="Email" type="email" placeholder="example@mail.com" />
-        <input name="Password" type="password" placeholder="Password" />
+        <input name="email" type="email" placeholder="example@mail.com" />
+        <input name="password" type="password" placeholder="Password" />
         <input
-          onClick={navigateToHome}
+          // onClick={navigateToHome}
           className="button"
           type="submit"
           value="Log in"
