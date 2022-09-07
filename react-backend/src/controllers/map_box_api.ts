@@ -39,7 +39,7 @@ export const getMap = async (
   fetch(URL)
     .then((response) => response.json())
     .then((data) => getStaticMapURL(data, start, end))
-    .then((url) => res.send(JSON.stringify(url)))
+    .then((url) => res.send(url))
     .catch((err) => console.error("Error: ", err));
 };
 
