@@ -11,7 +11,7 @@ export const HomePage = (props) => {
   
   // Ask information to back-end to get all the journeys
   useEffect(() => {
-    fetch('/api/all_routes')
+    fetch('/api/all_routes') //https://jsonplaceholder.typicode.com/todos/ 
       .then(response => response.json())
       .then(json => setJourneys(json))
       .catch((err) => {
@@ -64,7 +64,7 @@ export const HomePage = (props) => {
               <div className='column'>
                 <div className='map-column'>
                 <button className="button" href="/journey/id">Join now!</button>
-                <p>{journey.discription}</p>
+                <p>{journey.description}</p>
                 </div>
               </div>
 
@@ -76,6 +76,7 @@ export const HomePage = (props) => {
                       <p>Date and Time: {journey.startTime}</p>
                       <p>Start location:{journey.startPoint} </p>
                       <p>End location: {journey.endPoint}</p>
+                      <p>Host:<a href='/profile' >{journey.host_id}</a></p>
                       <button className="button" href="/journey/id">Find out more</button>
                     </div>
             </div>
