@@ -81,7 +81,7 @@ app.post('/api/signin', authController.signIn);
 app.post('/api/signOut', authController.signOut);
 
 app.post('/api/routes', routeController.saveRoute);
-app.get('/api/all_routes');
+app.get('/api/all_routes', routeController.getRoutes);
 
 /**
  * Handles all other routes

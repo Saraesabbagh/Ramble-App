@@ -12,3 +12,14 @@ export const saveRoute = (req: Request, res: Response) => {
     res.send({ message: 'Route was saved successfully!' });
   });
 };
+
+export const getRoutes = (req: Request, res: Response) => {
+  Route.find().exec((err, routes) => {
+    if (err) {
+      res.status(500).send({ message: err });
+      return;
+    }
+
+    res.send(routes);
+  });
+};
