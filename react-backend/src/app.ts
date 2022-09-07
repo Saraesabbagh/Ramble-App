@@ -71,8 +71,15 @@ app.use(function (req, res, next) {
 
 // app.post("/api/signup", userController.saveUser);
 
+<<<<<<< HEAD
 app.post('/api/save_route', APIController.getMap);
 app.get('/api/user/details', userController.getDetails);
+=======
+app.post('/api/save_route');
+app.get('/api/route', APIController.getMap);
+app.get('/api/generate_route');
+app.get('/api/profile/:_id', userController.getDetails);
+>>>>>>> main
 
 app.post('/api/signup', checkDuplicateEmail, authController.signUp);
 app.post('/api/signin', authController.signIn);
