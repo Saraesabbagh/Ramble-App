@@ -9,7 +9,7 @@ export const HomePage = (props) => {
   console.log(props.user);
   
   useEffect(() => {
-    fetch('/api/routes') //change this for backend url like '/api/signup'
+    fetch('/api/all_routes') //change this for backend url like '/api/signup'
       .then(response => response.json())
       .then(json => setJourneys(json))
       .catch((err) => {
@@ -18,7 +18,7 @@ export const HomePage = (props) => {
   }, [])
   
   const navigate = useNavigate();
-  
+
   const navigateToNewJourney = () => {
     navigate('/journey/new')
   }
