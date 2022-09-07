@@ -1,4 +1,5 @@
 import "./HomePage.css";
+import { DropDownList } from "../atomic-components/DropDownList";
 import { Page } from "./Page.js";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -8,8 +9,9 @@ export const HomePage = (props) => {
   const [journeys, setJourneys] = useState([]);
   console.log(props.user);
   
+  // Ask information to back-end to get all the journeys
   useEffect(() => {
-    fetch('/api/all_routes') //change this for backend url like '/api/signup'
+    fetch('/api/all_routes')
       .then(response => response.json())
       .then(json => setJourneys(json))
       .catch((err) => {
@@ -17,12 +19,21 @@ export const HomePage = (props) => {
       })
   }, [])
   
+  // Navigate to a page to create new journey
   const navigate = useNavigate();
 
   const navigateToNewJourney = () => {
     navigate('/journey/new')
   }
     
+  // Data for dropdown list to do the filter button
+
+  const disciplines = [
+    "Walking",
+    "Running",
+    "Cycling"
+]
+
    return (
     <div> 
         <Page />
@@ -31,9 +42,11 @@ export const HomePage = (props) => {
             <div className="homeHeroTextBox">
                 <h1>Hi {props.user.firstName}!</h1>
                 <h2>What would you like to do today?</h2>
-                <button className="button">Filter</button>
+                <button onClick={navigateToNewJourney} className="button">ADD NEW JOURNEY</button>
+                <DropDownList name="discipline" items={disciplines}/>
+                {/* <button className="button">Filter</button> */}
             </div>
-            <button onClick={navigateToNewJourney} className="button">ADD NEW JOURNEY</button>
+            
         </div>
 
       {journeys.map((journey) => {
