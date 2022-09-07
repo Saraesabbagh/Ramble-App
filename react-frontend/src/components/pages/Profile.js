@@ -1,29 +1,30 @@
 import "./HomePage.css";
 import { Page } from "../pages/Page";
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom"
 
 export const Profile = () => {
-    const [users, setUser] = useState([]);
-    useEffect(() => {
-    fetch('/user/all/') // backend url to get each user 
-      .then(response => response.json())
-      .then(json => setUser(json))
-      .catch((err) => {
-        console.log(err.message);
-      })
-  }, [])
 
+    const location = useLocation()
+
+//     const [user, setUser] = useState([]);
+//     useEffect(() => {
+//     fetch(`/api/profile/"63186b4e7988e0e5b49b1f10"/`) // backend url to get each user 
+//       .then(json => setUser(json))
+//       .then(data => console.log(data))
+//       .catch((err) => {
+//         console.log(err.message);
+//       })
+//   }, [])
+  
     return (
         
         <div>
             <Page />
-            {users.map((user) => {
-                if(user.id === 1){
-                    return (
-                        <h1>{user.title}</h1>
-                    )
-                }
-            })}
+            <h1>Kate Evans</h1>
+           
+            {/* <h1>{user.firstName}</h1> */}
+                    
 
             {/* First card with profile picture and bio */}
             <div className='row'>
@@ -42,14 +43,16 @@ export const Profile = () => {
                 </div>  
             </div>
 
-            <h1>Journeys I've done</h1>
-            {users.map((user) => {
+            
+
+            {/* <h1>Journeys I've done</h1>
+            {user.map((user) => {
                 if(user.id === 1){
                     return (
                         <p>{user.journeys}</p>
                     )
                 }
-            })}
+            })} */}
         </div>
     )
 }

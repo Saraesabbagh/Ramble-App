@@ -11,7 +11,7 @@ export const IndexPage = () => {
         <div className="indexHero"> 
           <div className="indexHeroTextBox">
               <div className="indexHeroText">
-                <h1>Ramble</h1>
+                <h1>RAMBLE</h1>
                 <h2>Find a Walking, running or cycling buddy in your area</h2>
               </div>
           </div>
@@ -20,7 +20,7 @@ export const IndexPage = () => {
           <div className='row'>
             <div className='column'>
               <div className='text-column'>
-                <h3>Why RAMBLE?</h3>
+                <h3>Join the community!</h3>
                 <h4>Make a profile, find a route, join the group.</h4>
                 <p>Find out more about our Mission 
                 <p><a className="button" href="/mission">here</a></p>
@@ -36,7 +36,7 @@ export const IndexPage = () => {
           </div>
         </div>
         <div className="reviewCard">
-          <h2>What People are Saying about us </h2>
+          <h2>What People are saying about us </h2>
           <div className='row'>
             <div className='column'>
               <div className='review1-column'>
