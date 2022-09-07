@@ -29,6 +29,7 @@ export const NewJourneyPage = () => {
       const startTime = event.target.startTime
       const startPoint = event.target.startPoint
       const endPoint = event.target.endPoint
+      console.log("Discipline", discipline)
 
       fetch('/api/save_route', {
         method: 'POST',
