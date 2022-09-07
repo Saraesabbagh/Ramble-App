@@ -1,10 +1,14 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import { Route } from '../models/route';
 
-export const saveRoute = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-): Promise<void> => {
-  const route = new Route({});
+export const saveRoute = (req: Request, res: Response) => {
+  const route = new Route(req.body);
+
+  route.save((err) => {
+    if (err) {
+      res.status(500).send({ message: err });
+      return;
+    }
+    res.send({ message: 'Route was saved successfully!' });
+  });
 };
