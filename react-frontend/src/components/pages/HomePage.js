@@ -2,7 +2,7 @@ import "./HomePage.css";
 import { DropDownList } from "../atomic-components/DropDownList";
 import { Page } from "./Page.js";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 
 export const HomePage = (props) => {
@@ -11,7 +11,7 @@ export const HomePage = (props) => {
   
   // Ask information to back-end to get all the journeys
   useEffect(() => {
-    fetch('/api/all_routes') //https://jsonplaceholder.typicode.com/todos/ 
+    fetch('https://jsonplaceholder.typicode.com/todos/') //https://jsonplaceholder.typicode.com/todos/ ///api/all_routes
       .then(response => response.json())
       .then(json => setJourneys(json))
       .catch((err) => {
@@ -44,14 +44,19 @@ export const HomePage = (props) => {
                 <h2>What would you like to do today?</h2>
                 <button onClick={navigateToNewJourney} className="button">ADD NEW JOURNEY</button>
                 <DropDownList name="discipline" items={disciplines}/>
-                {/* <button className="button">Filter</button> */}
             </div>
             
         </div>
 
       {journeys.map((journey) => {
+        const sendDataToProfile = () => {
+          navigate('/profile', {state:{id:1, name:journey.host_id}});
+        }
+        // const currentUserId = "Hello, I'm user id" //journey.host_id
+        // const currentUserId = journey.host_id
         return (
         <div className="homeList">
+          
           <div className='row'>
             {/* image card */}
             <div className='column'>
@@ -76,12 +81,16 @@ export const HomePage = (props) => {
                       <p>Date and Time: {journey.startTime}</p>
                       <p>Start location:{journey.startPoint} </p>
                       <p>End location: {journey.endPoint}</p>
-                      <p>Host:<a href='/profile' >{journey.host_id}</a></p>
+                      <button onClick={() => {sendDataToProfile()}}>Host</button>
                       <button className="button" href="/journey/id">Find out more</button>
                     </div>
             </div>
           </div>
         </div>
+        
             )})}
+
             </div>
+            
       )}
+      
