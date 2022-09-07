@@ -74,7 +74,7 @@ app.use(function (req, res, next) {
 app.post('/api/save_route');
 app.get('/api/route', APIController.getMap);
 app.get('/api/generate_route');
-app.get('/api/user/:_id', userController.getDetails);
+app.get('/api/profile/:_id', userController.getDetails);
 
 app.post('/api/signup', checkDuplicateEmail, authController.signUp);
 app.post('/api/signin', authController.signIn);
