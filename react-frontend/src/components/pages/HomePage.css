@@ -8,3 +8,14 @@
     border-radius: 20px;
     color: white;
 }
+
+.profile-pic{
+    border-radius: 60px;
+    margin-right: 20%;
+    padding: 30px;
+}
+
+.description{
+    margin-right: 100px;
+    padding: 30px
+}
