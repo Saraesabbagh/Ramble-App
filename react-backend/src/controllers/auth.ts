@@ -1,8 +1,8 @@
-import { config } from '../config/auth.config';
-import { User } from '../models/user';
-import { Request, Response, NextFunction } from 'express';
-import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
+import { config } from "../config/auth.config";
+import { User } from "../models/user";
+import { Request, Response, NextFunction } from "express";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 
 export const signUp = (req, res) => {
   const user = new User({
@@ -17,7 +17,7 @@ export const signUp = (req, res) => {
       res.status(500).send({ message: err });
       return;
     }
-    res.send({ message: 'User was registered successfully!' });
+    res.send({ message: "User was registered successfully!" });
   });
 };
 
@@ -32,7 +32,7 @@ export const signIn = (req: Request, res: Response) => {
         return;
       }
       if (!user) {
-        return res.status(404).send({ message: 'User not found.' });
+        return res.status(404).send({ message: "User not found." });
       }
 
       const validPassword = bcrypt.compareSync(
@@ -41,7 +41,7 @@ export const signIn = (req: Request, res: Response) => {
       );
 
       if (!validPassword) {
-        return res.status(401).send({ message: 'Invalid Password!' });
+        return res.status(401).send({ message: "Invalid Password!" });
       }
 
       jwt.sign(

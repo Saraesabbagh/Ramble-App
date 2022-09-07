@@ -16,7 +16,8 @@ import { checkDuplicateEmail } from "./middlewares/verifySignUp";
 // Controller
 
 import * as authController from "./controllers/auth";
-
+import * as userController from "./controllers/user";
+import * as APIController from "./controllers/map_box_api";
 const app = express();
 const port = 3001;
 
@@ -69,9 +70,9 @@ app.use(function (req, res, next) {
 // app.post("/api/signup", userController.saveUser);
 
 app.post("/api/save_route");
-
+app.get("/api/route", APIController.getMap);
 app.get("/api/generate_route");
-
+app.get("/api/user/details", userController.getDetails);
 app.post("/api/signup", checkDuplicateEmail, authController.signUp);
 app.post("/api/signin", authController.signIn);
 app.post("/api/signOut", authController.signOut);
