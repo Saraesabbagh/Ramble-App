@@ -7,23 +7,23 @@ export const Profile = () => {
 
     const location = useLocation()
 
-    const [user, setUser] = useState([]);
-    useEffect(() => {
-    fetch(`/api/profile/63186b4e7988e0e5b49b1f10/`) // backend url to get each user 
-      .then(json => setUser(json))
-      .then(data => console.log(data))
-      .catch((err) => {
-        console.log(err.message);
-      })
-  }, [])
+//     const [user, setUser] = useState([]);
+//     useEffect(() => {
+//     fetch(`/api/profile/"63186b4e7988e0e5b49b1f10"/`) // backend url to get each user 
+//       .then(json => setUser(json))
+//       .then(data => console.log(data))
+//       .catch((err) => {
+//         console.log(err.message);
+//       })
+//   }, [])
   
     return (
         
         <div>
             <Page />
-            {/* <h1>{location.state}</h1> */}
+            <h1>Kate Evans</h1>
            
-            <h1>{user.firstName}</h1>
+            {/* <h1>{user.firstName}</h1> */}
                     
 
             {/* First card with profile picture and bio */}
