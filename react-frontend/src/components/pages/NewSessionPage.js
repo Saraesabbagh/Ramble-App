@@ -2,8 +2,9 @@ import { Page } from "./Page.js";
 import React from "react";
 import "../../App.css";
 import { useNavigate } from "react-router-dom";
+import { HomePage } from "./HomePage.js";
 
-export const NewSessionPage = () => {
+export const NewSessionPage = (props) => {
     const navigate = useNavigate();
 
   const whenSubmit = (event) => {
@@ -19,15 +20,19 @@ export const NewSessionPage = () => {
       },
       body: JSON.stringify({ email: email.value, password: password.value }),
     })
-      .then((response) => {
-        console.log(response);
-        if(response.message === "Signin Succcesful!") {
+        .then((response) => (response.json()))
+      .then((data) => {
+        console.log(data);
+        if(data.message === "Signin Successful") {
         window.alert("Welcome to Ramble!");
-        localStorage.setItem("session",response.user);
+        props.setUser(data.user)
+        navigate('/home')
+        
         console.log(localStorage.session);
-        navigate("/home");
+       
+       
     } else {
-        window.alert(response.message)
+        window.alert(data.message)
     }} )
       
         

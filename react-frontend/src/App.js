@@ -13,14 +13,15 @@ import './App.css';
 import { NewJourney } from './components/pages/NewJourneyPage';
 
 function App() {
+  const [user, setUser] = React.useState([])
   return (
     <div className= "App">
     <BrowserRouter>
     <Routes>
           <Route path='/' element={<IndexPage />} />
           <Route path='/user/new' element={<NewUserPage />} />
-          <Route path='/session/new' element={<NewSessionPage />} />
-          <Route path='/home' element={<HomePage />} /> 
+          <Route path='/session/new' element={<NewSessionPage setUser={setUser} />} />
+          <Route path='/home' element={<HomePage user={user}/>} /> 
           {/* need to send props of user details into this home page. */}
           <Route path='/mission' element={<Mission />} />  
           <Route path='/app' element={<AppFunctionality />} />   

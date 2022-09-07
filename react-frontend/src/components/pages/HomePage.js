@@ -3,8 +3,9 @@ import { Page } from "./Page.js";
 import React, { useEffect, useState } from "react";
 
 
-export const HomePage = () => {
+export const HomePage = (props) => {
   const [journeys, setJourneys] = useState([]);
+  console.log(props.user);
   
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/todos') //change this for backend url like '/api/signup'
@@ -22,7 +23,7 @@ export const HomePage = () => {
       
         <div className="homeHero"> 
             <div className="homeHeroTextBox">
-                <h1>Hi name!</h1>
+                <h1>Hi {props.firstName}!</h1>
                 <h2>What would you like to do today?</h2>
                 <button className="button">Filter</button>
             </div>
