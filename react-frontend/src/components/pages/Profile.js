@@ -9,8 +9,9 @@ export const Profile = () => {
 
     const [user, setUser] = useState([]);
     useEffect(() => {
-    fetch(`/profile/${location.state}/`) // backend url to get each user 
+    fetch(`/api/profile/63186b4e7988e0e5b49b1f10/`) // backend url to get each user 
       .then(json => setUser(json))
+      .then(data => console.log(data))
       .catch((err) => {
         console.log(err.message);
       })
@@ -20,7 +21,7 @@ export const Profile = () => {
         
         <div>
             <Page />
-            <h1>{location.state}</h1>
+            {/* <h1>{location.state}</h1> */}
            
             <h1>{user.firstName}</h1>
                     
@@ -44,14 +45,14 @@ export const Profile = () => {
 
             
 
-            <h1>Journeys I've done</h1>
+            {/* <h1>Journeys I've done</h1>
             {user.map((user) => {
                 if(user.id === 1){
                     return (
                         <p>{user.journeys}</p>
                     )
                 }
-            })}
+            })} */}
         </div>
     )
 }

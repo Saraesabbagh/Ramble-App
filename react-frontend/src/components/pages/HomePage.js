@@ -50,7 +50,7 @@ export const HomePage = (props) => {
 
       {journeys.map((journey) => {
         const sendDataToProfile = () => {
-          navigate('/profile', {state:journey.host_id});
+          navigate('/profile', {state:{id:1, name:journey.host_id}});
         }
         // const currentUserId = "Hello, I'm user id" //journey.host_id
         // const currentUserId = journey.host_id
