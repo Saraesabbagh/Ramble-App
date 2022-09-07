@@ -28,46 +28,64 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
-const express_session_1 = __importDefault(require("express-session"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const path_1 = __importDefault(require("path"));
 const bluebird_1 = __importDefault(require("bluebird"));
-const express_flash_1 = __importDefault(require("express-flash"));
-const cookie_parser_1 = __importDefault(require("cookie-parser"));
-// Controller (route Handlers)
-const userController = __importStar(require("./controllers/user"));
+const cookie_session_1 = __importDefault(require("cookie-session"));
+const cors_1 = __importDefault(require("cors"));
+const dotenv = __importStar(require("dotenv"));
+dotenv.config();
+// Middleware Functions
+const verifySignUp_1 = require("./middlewares/verifySignUp");
+// Controller
+const authController = __importStar(require("./controllers/auth"));
 const app = (0, express_1.default)();
 const port = 3001;
-app.use((0, cookie_parser_1.default)());
-app.use((0, express_session_1.default)({
-    key: "user_sid",
-    secret: "super_secret",
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        expires: 1200000,
-    }
+const corsOptions = {
+    origin: "http://localhost:3001",
+};
+app.use((0, cookie_session_1.default)({
+    name: "ramble-session",
+    secret: process.env.SESSION_SECRET,
+    httpOnly: true,
 }));
-app.use((0, express_flash_1.default)());
+app.use((0, cors_1.default)(corsOptions));
 app.use(express_1.default.json());
+app.use(express_1.default.urlencoded({ extended: true }));
 app.use(body_parser_1.default.json());
-app.use((0, express_session_1.default)());
-app.use(express_1.default.static(path_1.default.join(__dirname, "/react-frontend")));
+app.use(express_1.default.static(path_1.default.join(__dirname, "..", "..", "react-frontend/build")));
 const mongoDbUrl = "mongodb://0.0.0.0/Ramble";
 mongoose_1.default.Promise = bluebird_1.default;
-mongoose_1.default.connect(mongoDbUrl).then(() => { console.log("Database connection worked "); }).catch(err => {
+mongoose_1.default
+    .connect(mongoDbUrl)
+    .then(() => {
+    console.log("Database connection worked ");
+})
+    .catch((err) => {
     console.log(`MongoDB connection error. Please make sure MongoDB is running. ${err}`);
     // process.exit();
+});
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Headers", "Origin, Content-Type, Accept");
+    next();
 });
 /**
  * API Routes.
  */
-app.post("/api/signup", userController.saveUser);
+// app.post("/api/signup", userController.saveUser);
+app.post("/api/save_route");
+app.get("/api/generate_route");
+app.post("/api/signup", verifySignUp_1.checkDuplicateEmail, authController.signUp);
+app.post("/api/signin", authController.signIn);
+app.post("/api/signOut", authController.signOut);
 /**
-* Handles all other routes
-*/
-app.get('*', (req, res) => {
+ * Handles all other routes
+ */
+app.get("*", (req, res) => {
     res.sendFile(path_1.default.join(__dirname, "..", "..", "react-frontend/public/index.html"));
+});
+app.get("/", (req, res) => {
+    res.json({ message: "Welcome to bezkoder application." });
 });
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
