@@ -1,24 +1,15 @@
 import { User } from '../models/user';
-import { body, check, validationResult } from 'express-validator';
-import { Request, Response, NextFunction } from 'express';
-import { WriteError } from 'mongodb';
-import { CallbackError } from 'mongoose';
-import bcrypt from 'bcrypt';
-
-/**
- * Login page.
- * @route GET /api/user/details
- */
+import { Request, Response } from 'express';
 
 export const getDetails = async (
   req: Request,
-  res: Response,
-  next: NextFunction
+  res: Response
 ): Promise<void> => {
-  User.findOne({ email: req.body.id }, (err, user) => {
+  User.findOne({ _id: req.params._id }, (err, user) => {
     if (err) {
-      return next(err);
+      res.status(500).send({ message: err });
+      return;
     }
-    res.send(JSON.stringify(user));
+    res.send(user);
   });
 };
