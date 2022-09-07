@@ -12,35 +12,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.validateUser = exports.saveUser = void 0;
+exports.validateUser = exports.getDetails = void 0;
 const user_1 = require("../models/user");
 const bcrypt_1 = __importDefault(require("bcrypt"));
 /**
  * Login page.
- * @route POST /api/signup
+ * @route GET /api/user/details
  */
-const saveUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(req.body);
-    const user = new user_1.User(req.body);
-    user_1.User.findOne({ email: req.body.email }, (err, users) => {
+const getDetails = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    user_1.User.findOne({ email: req.body.id }, (err, user) => {
         if (err) {
             return next(err);
         }
-        if (users) {
-            console.log("Email exists already");
-            res.send(JSON.stringify({ message: "Email exists already" }));
-        }
-        else {
-            user.save((err) => {
-                if (err) {
-                    return next(err);
-                }
-                res.send(JSON.stringify({ message: "Success" }));
-            });
-        }
+        res.send(JSON.stringify(user));
     });
 });
-exports.saveUser = saveUser;
+exports.getDetails = getDetails;
 const validateUser = (req, res, next) => {
     user_1.User.findOne({ email: req.body.email }, (err, user) => {
         if (err) {
@@ -55,7 +42,7 @@ const validateUser = (req, res, next) => {
                 // check with frontend what is best to return
             }
             else {
-                res.redirect('/session/new');
+                res.redirect("/session/new");
             }
         });
     });

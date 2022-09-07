@@ -29,7 +29,7 @@ const signUp = (req, res) => {
             res.status(500).send({ message: err });
             return;
         }
-        res.send({ message: 'User was registered successfully!' });
+        res.send({ message: "User was registered successfully!" });
     });
 };
 exports.signUp = signUp;
@@ -42,11 +42,11 @@ const signIn = (req, res) => {
             return;
         }
         if (!user) {
-            return res.status(404).send({ message: 'User not found.' });
+            return res.status(404).send({ message: "User not found." });
         }
         const validPassword = bcrypt_1.default.compareSync(req.body.password, user.password);
         if (!validPassword) {
-            return res.status(401).send({ message: 'Invalid Password!' });
+            return res.status(401).send({ message: "Invalid Password!" });
         }
         jsonwebtoken_1.default.sign({ id: user.id }, auth_config_1.config.secret, {
             expiresIn: 86400,

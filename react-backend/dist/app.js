@@ -39,6 +39,8 @@ dotenv.config();
 const verifySignUp_1 = require("./middlewares/verifySignUp");
 // Controller
 const authController = __importStar(require("./controllers/auth"));
+const userController = __importStar(require("./controllers/user"));
+const APIController = __importStar(require("./controllers/map_box_api"));
 const app = (0, express_1.default)();
 const port = 3001;
 const corsOptions = {
@@ -74,7 +76,9 @@ app.use(function (req, res, next) {
  */
 // app.post("/api/signup", userController.saveUser);
 app.post("/api/save_route");
+app.get("/api/route", APIController.getMap);
 app.get("/api/generate_route");
+app.get("/api/user/details", userController.getDetails);
 app.post("/api/signup", verifySignUp_1.checkDuplicateEmail, authController.signUp);
 app.post("/api/signin", authController.signIn);
 app.post("/api/signOut", authController.signOut);
