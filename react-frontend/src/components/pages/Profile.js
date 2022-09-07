@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 export const Profile = () => {
     const [users, setUser] = useState([]);
     useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/todos') //change this for backend url to get the user session
+    fetch('/user/all/') // backend url to get each user 
       .then(response => response.json())
       .then(json => setUser(json))
       .catch((err) => {
