@@ -25,10 +25,6 @@ export const HomePage = (props) => {
     navigate("/journey/new");
   };
 
-  // Data for dropdown list to do the filter button
-
-  const disciplines = ["Walking", "Running", "Cycling"];
-
   //Add information about participants into the database
   // const whenSubmit = (event) => {
   //   event.preventDefault();

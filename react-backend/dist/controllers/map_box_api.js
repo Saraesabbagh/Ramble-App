@@ -26,6 +26,7 @@ const getMap = (req, res, next) => __awaiter(void 0, void 0, void 0, function* (
         discipline: discipline,
         duration: null,
         distance: null,
+        date: req.body.date,
         title: req.body.title,
         description: req.body.description,
         startTime: req.body.startTime,

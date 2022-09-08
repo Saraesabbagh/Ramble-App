@@ -10,6 +10,7 @@ const RouteSchema = new mongoose_1.default.Schema({
     discipline: { type: String, required: true },
     duration: { type: String, required: true },
     distance: { type: String, required: true },
+    date: { type: String, required: true },
     title: { type: String, required: true },
     description: { type: String, required: true },
     startTime: { type: String, required: true },
