@@ -23,6 +23,7 @@ export const HomePage = (props) => {
   const navigate = useNavigate();
 
   const navigateToNewJourney = () => {
+    
     navigate('/journey/new')
   }
     
