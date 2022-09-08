@@ -13,6 +13,7 @@ export const NewUserPage = () => {
   const whenSubmit = (event) => {
     console.log("First Name");
     event.preventDefault();
+    
     const firstName = event.target.firstName;
     const lastName = event.target.lastName;
     const email = event.target.email;

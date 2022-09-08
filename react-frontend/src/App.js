@@ -23,7 +23,7 @@ function App() {
           {/* need to send props of user details into this home page. */}
           <Route path='/mission' element={<Mission />} />  
           <Route path='/app' element={<AppFunctionality />} />   
-          <Route path='/journey/new' element={<NewJourneyPage/>} /> 
+          <Route path='/journey/new' element={<NewJourneyPage user={user}/>} /> 
           <Route path='/profile' element={<Profile />} />
       </Routes>
    </BrowserRouter>     
