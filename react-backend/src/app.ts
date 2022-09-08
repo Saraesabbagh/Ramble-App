@@ -71,15 +71,18 @@ app.use(function (req, res, next) {
 
 // app.post("/api/signup", userController.saveUser);
 
-
 app.post('/api/save_route', APIController.getMap);
+
 app.get('/api/user/details', userController.getDetails);
 app.get('/api/profile/:_id', userController.getDetails);
 app.post('/api/signup', checkDuplicateEmail, authController.signUp);
+
 app.post('/api/signin', authController.signIn);
 app.post('/api/signOut', authController.signOut);
 
 app.post('/api/routes', routeController.saveRoute);
+app.post('/api/addParticipant', routeController.addParticipant);
+
 app.get('/api/all_routes', routeController.getRoutes);
 
 /**
@@ -90,10 +93,6 @@ app.get('*', (req, res) => {
   res.sendFile(
     path.join(__dirname, '..', '..', 'react-frontend/public/index.html')
   );
-});
-
-app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to bezkoder application.' });
 });
 
 app.listen(port, () => {

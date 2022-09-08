@@ -47,13 +47,16 @@ export const NewJourneyPage = (props) => {
       const saveRoute = (event) => {
       event.preventDefault()
 
-      
+
       const user_id = props.user._id
+
+
       const start_place = start_coordinates
       const end_place = end_coordinates
       const discipline = "cycling"
       const title = event.target.title
       const description = event.target.description
+      const date = event.target.date
       const startTime = event.target.startTime
       const startPoint = event.target.startPoint
       const endPoint = event.target.endPoint
@@ -72,7 +75,10 @@ export const NewJourneyPage = (props) => {
         headers: {
             'Content-type': 'application/json'
         },
+
         body: JSON.stringify({host_id: user_id, title: title.value, description: description.value, startPoint: startPoint.value,endPoint: endPoint.value ,discipline: discipline, startTime: startTime.value, start_place: start_place, end_place: end_place})
+
+       
       })
       .then(response => console.log(response.body))
       .catch((error) => {
@@ -106,6 +112,7 @@ export const NewJourneyPage = (props) => {
                 <DropDownList name="discipline" items={disciplines}/>
                 <input name="title" placeholder="Give your Journey a title" />
                 <input name="description" type="text" placeholder="Give us a quick description of your Journey..." />
+                <input name="date" type="date" placeholder="Select the date for your journey" />
                 <input name="startTime" placeholder="When will your journey start?" />
                 <StartMapAPI setStart_coordinates={setStart_coordinates}/>
                 <EndMapAPI setEnd_coordinates={setEnd_coordinates}/>
