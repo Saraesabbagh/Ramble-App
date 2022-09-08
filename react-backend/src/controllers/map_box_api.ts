@@ -25,6 +25,7 @@ export const getMap = async (
     discipline: discipline,
     duration: null,
     distance: null,
+    date: req.body.date,
     title: req.body.title,
     description: req.body.description,
     startTime: req.body.startTime,

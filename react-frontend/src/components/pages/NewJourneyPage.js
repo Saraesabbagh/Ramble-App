@@ -61,14 +61,7 @@ export const NewJourneyPage = (props) => {
       const startPoint = event.target.startPoint
       const endPoint = event.target.endPoint
       console.log("Discipline", discipline.item)
-      console.log(user_id)
-      console.log(start_place)
-      console.log(end_place)
-      console.log(title)
-      console.log(description)
-      console.log(startTime)
-      console.log(startPoint)
-      console.log(endPoint)
+     
 
       fetch('/api/save_route', {
         method: 'POST',
@@ -76,7 +69,7 @@ export const NewJourneyPage = (props) => {
             'Content-type': 'application/json'
         },
 
-        body: JSON.stringify({host_id: user_id, title: title.value, description: description.value, startPoint: startPoint.value,endPoint: endPoint.value ,discipline: discipline, startTime: startTime.value, start_place: start_place, end_place: end_place})
+        body: JSON.stringify({host_id: user_id, title: title.value, description: description.value, startPoint: startPoint.value,endPoint: endPoint.value ,discipline: discipline, startTime: startTime.value, start_place: start_place, end_place: end_place, date: date})
 
        
       })
