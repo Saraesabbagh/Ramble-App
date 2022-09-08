@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router-dom';
 // import { Footer } from "../atomic-components/Footer";
 import React, {useRef, useState } from "react";
 import { usePlacesWidget } from "react-google-autocomplete";
+import { JourneyRender } from "../atomic-components/journeyRender";
 
 const StartMapAPI = (props) => {
   const { ref, autocompleteRef } = usePlacesWidget({
@@ -35,7 +36,7 @@ const EndMapAPI = (props) => {
 }
 
 export const NewJourneyPage = (props) => {
-   
+    const [journey, setJourney] = useState()
     const [start_coordinates, setStart_coordinates] = useState();
     const [end_coordinates, setEnd_coordinates] = useState();
 
@@ -61,14 +62,7 @@ export const NewJourneyPage = (props) => {
       const startPoint = event.target.startPoint
       const endPoint = event.target.endPoint
       console.log("Discipline", discipline.item)
-      console.log(user_id)
-      console.log(start_place)
-      console.log(end_place)
-      console.log(title)
-      console.log(description)
-      console.log(startTime)
-      console.log(startPoint)
-      console.log(endPoint)
+     
 
       fetch('/api/save_route', {
         method: 'POST',
@@ -76,15 +70,20 @@ export const NewJourneyPage = (props) => {
             'Content-type': 'application/json'
         },
 
-        body: JSON.stringify({host_id: user_id, title: title.value, description: description.value, startPoint: startPoint.value,endPoint: endPoint.value ,discipline: discipline, startTime: startTime.value, start_place: start_place, end_place: end_place})
+        body: JSON.stringify({host_id: user_id, title: title.value, description: description.value, startPoint: startPoint.value,endPoint: endPoint.value ,discipline: discipline, startTime: startTime.value, start_place: start_place, end_place: end_place, date: date.value})
 
        
       })
-      .then(response => console.log(response.body))
+      .then((response) => (response.json()))
+      .then((data) => {
+      window.alert("Great! We've Saved your Journey!");
+      setJourney(data.journey)  
+    })
       .catch((error) => {
         console.error("Error", error)
       })
     }
+    
     
     const disciplines = [
         "Walking",
@@ -120,6 +119,9 @@ export const NewJourneyPage = (props) => {
                 <input onClick={navigateToHome}className="button" type="submit" value="Go to Routes" />
             </form>
             </div>
+            <div className="journey-container">
+                    {journey && <JourneyRender journey={journey} />}
+              </div>
                 
            
         </div>
