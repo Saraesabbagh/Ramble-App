@@ -20,7 +20,7 @@ export const NewSessionPage = (props) => {
       },
       body: JSON.stringify({ email: email.value, password: password.value }),
     })
-        .then((response) => (response.json()))
+      .then((response) => (response.json()))
       .then((data) => {
         console.log(data);
         if(data.message === "Signin Successful") {

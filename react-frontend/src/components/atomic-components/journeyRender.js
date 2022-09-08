@@ -11,9 +11,9 @@ export const JourneyRender = (props) => {
             <p>{props.journey.discipline}</p>
             <p>{props.journey.startTime}</p>
             <p>{props.journey.endPoint}</p>
-            <p>{props.journey.duration}</p>
+            <p>{props.journey.duration} Minutes</p>
             <p>{props.journey.distance} Miles </p>
-            <p>{props.journey.url}</p>
+            <img src={props.journey.img} alt="Journey Map"/>
         </div>
     )
 }
