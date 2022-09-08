@@ -46,27 +46,35 @@ export const NewJourneyPage = (props) => {
 
       const saveRoute = (event) => {
       event.preventDefault()
-      console.log(props.user)
-      console.log("It worked", start_coordinates)
-      const user_id = props.user.id
+
+      
+      const user_id = props.user._id
       const start_place = start_coordinates
       const end_place = end_coordinates
-      const discipline = event.target.discipline
+      const discipline = "cycling"
       const title = event.target.title
       const description = event.target.description
       const startTime = event.target.startTime
       const startPoint = event.target.startPoint
       const endPoint = event.target.endPoint
-      console.log("Discipline", discipline)
+      console.log("Discipline", discipline.item)
+      console.log(user_id)
+      console.log(start_place)
+      console.log(end_place)
+      console.log(title)
+      console.log(description)
+      console.log(startTime)
+      console.log(startPoint)
+      console.log(endPoint)
 
       fetch('/api/save_route', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json'
         },
-        body: JSON.stringify({user_id: user_id, title: title.value, description: description.value, startPoint: startPoint,endPoint: endPoint ,discipline: discipline, startTime: startTime.value, start_place: start_place, end_place: end_place})
+        body: JSON.stringify({host_id: user_id, title: title.value, description: description.value, startPoint: startPoint.value,endPoint: endPoint.value ,discipline: discipline, startTime: startTime.value, start_place: start_place, end_place: end_place})
       })
-      .then(response => response.json())
+      .then(response => console.log(response.body))
       .catch((error) => {
         console.error("Error", error)
       })

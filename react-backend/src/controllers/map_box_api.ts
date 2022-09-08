@@ -15,6 +15,8 @@ export const getMap = async (
 ): Promise<void> => {
   console.log("Response Body: ", req.body);
 
+  
+
   const start = req.body.start_place
   const end = req.body.end_place;
   const discipline = req.body.discipline;
@@ -36,7 +38,7 @@ export const getMap = async (
   fetch(URL)
     .then((response) => response.json())
     .then((data) => getStaticMapURL(data, start, end, routeObject))
-    .then((route) => res.send(route))
+    .then((route) => res.json(route))
     .catch((err) => console.error("Error: ", err));
 };
 
