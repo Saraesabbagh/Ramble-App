@@ -56,26 +56,28 @@ export const NewJourneyPage = () => {
     const StartMapAPI = () => {
         const { ref, autocompleteRef } = usePlacesWidget({
           apiKey:"AIzaSyCVwRHHdtd6XynKpgTNl4SQOM4jT_pTaGk",
+          options: {
+            types: []
+          },
           
           onPlaceSelected: (place) => {
-            console.log(place);
-            console.log(place.geometry.location)
+            console.log("1",place);
             setStart_coordinates(place.geometry.location)
           }
         });
-        
-        
         return <input ref={ref} name="startPoint" placeholder="Where will your journey start?" />
       }
       //////////////////
       const EndMapAPI = () => {
         const { ref, autocompleteRef } = usePlacesWidget({
           apiKey:"AIzaSyCVwRHHdtd6XynKpgTNl4SQOM4jT_pTaGk",
-          
+          options: {
+            types: []
+          },
           onPlaceSelected: (place) => {
-            console.log(place);
-            console.log(place.geometry.location)
+            console.log("1",place);
             setEnd_coordinates(place.geometry.location)
+            console.log("2",place);
           }
         });
         

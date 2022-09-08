@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express";
+import { Route } from '../models/route';
 
 /**
  *
@@ -35,7 +36,7 @@ export const getMap = async (
   fetch(URL)
     .then((response) => response.json())
     .then((data) => getStaticMapURL(data, start, end, routeObject))
-    .then((url) => res.send(url))
+    .then((route) => res.send(route))
     .catch((err) => console.error("Error: ", err));
 };
 
@@ -44,15 +45,23 @@ export const getMap = async (
 const getStaticMapURL = async (data, start, end, routeObject) => {
   const line = encodeURIComponent(data.routes[0].geometry);
   
-  const URL = `https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-a+9ed4bd(${start.lng},${start.lat}),pin-s-b+000(${end.lng},${end.lat}),path-5+f44-0.5(${line})/auto/500x300?access_token=${api_key}`;
+  const URL = `https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-embassy+9ed4bd(${start.lng},${start.lat}),pin-s-racetrack+000(${end.lng},${end.lat}),path-5+f44-0.8(${line})/auto/500x300@2x?access_token=${api_key}`;
   // Adding new attributes to rout object
+  // If running times duration by 2 + converting to minutes
   if (routeObject.discipline === "running") {
-    routeObject.duration = data.routes[0].duration * 2
+    routeObject.duration = (Math.round(data.routes[0].duration * 2) / 60).toFixed(0)
   }
   else {
-    routeObject.duration = data.routes[0].duration
+    routeObject.duration = Math.round(data.routes[0].duration / 60).toFixed(0)
   }
-  routeObject.distance = data.routes[0].distance
+  // Converting to Miles
+  
+  
+  routeObject.distance = (Math.round(data.routes[0].distance) / 1609.34).toFixed(2)
+  
+  
   routeObject.img = URL
-  return routeObject
+  const route = new Route(routeObject)
+  route.save()
+  return route
 };
