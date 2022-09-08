@@ -76,8 +76,9 @@ export const NewJourneyPage = (props) => {
       })
       .then((response) => (response.json()))
       .then((data) => {
+      console.log("Data", data)
       window.alert("Great! We've Saved your Journey!");
-      setJourney(data.journey)  
+      setJourney(data)  
     })
       .catch((error) => {
         console.error("Error", error)
@@ -115,7 +116,7 @@ export const NewJourneyPage = (props) => {
                 <input name="startTime" placeholder="When will your journey start?" />
                 <StartMapAPI setStart_coordinates={setStart_coordinates}/>
                 <EndMapAPI setEnd_coordinates={setEnd_coordinates}/>
-                <input className="button" type="submit" value="Generate Route" />
+                <input className="button" type="submit" value="Save Route" />
                 <input onClick={navigateToHome}className="button" type="submit" value="Go to Routes" />
             </form>
             </div>
