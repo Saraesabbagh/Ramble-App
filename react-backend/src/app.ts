@@ -71,7 +71,6 @@ app.use(function (req, res, next) {
 
 // app.post("/api/signup", userController.saveUser);
 
-
 app.post('/api/save_route', APIController.getMap);
 app.get('/api/user/details', userController.getDetails);
 app.get('/api/profile/:_id', userController.getDetails);
@@ -80,6 +79,8 @@ app.post('/api/signin', authController.signIn);
 app.post('/api/signOut', authController.signOut);
 
 app.post('/api/routes', routeController.saveRoute);
+app.post('/api/addParticipant', routeController.addParticipant);
+
 app.get('/api/all_routes', routeController.getRoutes);
 
 /**
