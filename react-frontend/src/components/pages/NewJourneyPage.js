@@ -47,8 +47,8 @@ export const NewJourneyPage = (props) => {
       const saveRoute = (event) => {
       event.preventDefault()
 
-      
       const user_id = props.user._id
+
       const start_place = start_coordinates
       const end_place = end_coordinates
       const discipline = "cycling"
