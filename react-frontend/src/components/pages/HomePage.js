@@ -66,16 +66,10 @@ export const HomePage = (props) => {
           <button onClick={navigateToNewJourney} className="button">
             ADD NEW JOURNEY
           </button>
-          <DropDownList name="discipline" items={disciplines} />
         </div>
       </div>
 
       {journeys.map((journey) => {
-        const sendDataToProfile = () => {
-          navigate("/profile", { state: { id: 1, name: journey.host_id } });
-        };
-        // const currentUserId = "Hello, I'm user id" //journey.host_id
-        // const currentUserId = journey.host_id
         return (
           <div className="homeList">
             <div className="row">
@@ -140,16 +134,7 @@ export const HomePage = (props) => {
                   <p>Date and Time: {journey.startTime}</p>
                   <p>Start location:{journey.startPoint} </p>
                   <p>End location: {journey.endPoint}</p>
-                  <button
-                    onClick={() => {
-                      sendDataToProfile();
-                    }}
-                  >
-                    Host
-                  </button>
-                  <button className="button" href="/journey/id">
-                    Find out more
-                  </button>
+                  <p>Number of participants: {journey.participants.length}</p>
                 </div>
               </div>
             </div>
