@@ -11,7 +11,7 @@ export const HomePage = (props) => {
   
   // Ask information to back-end to get all the journeys
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/todos/') //https://jsonplaceholder.typicode.com/todos/ ///api/all_routes
+    fetch('/api/all_routes') //https://jsonplaceholder.typicode.com/todos/ ///api/all_routes
       .then(response => response.json())
       .then(json => setJourneys(json))
       .catch((err) => {
@@ -62,7 +62,7 @@ export const HomePage = (props) => {
             {/* image card */}
             <div className='column'>
               <div className='map-column'>
-                <img className="cyclegroup" src={require("../images/samplemap.png")} alt="map" width="250" />
+                <img className="cyclegroup" src={journey.img} alt="map" width="250" />
               </div>
             </div>
 
@@ -79,9 +79,13 @@ export const HomePage = (props) => {
                     <div className= 'text-column'>
                       <h3>{journey.title}</h3>
                       <p>{journey.discipline}</p>
-                      <p>Date and Time: {journey.startTime}</p>
+                      <p>Date: {journey.date}</p>
+                      <p>Time: {journey.startTime}</p>
                       <p>Start location:{journey.startPoint} </p>
                       <p>End location: {journey.endPoint}</p>
+                      <p>Distance: {journey.distance} Miles</p>
+                      <p>Duration: {journey.duration} Minutes</p>
+
                       <button onClick={() => {sendDataToProfile()}}>Host</button>
                       <button className="button" href="/journey/id">Find out more</button>
                     </div>
