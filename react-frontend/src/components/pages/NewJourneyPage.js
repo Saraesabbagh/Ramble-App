@@ -47,7 +47,9 @@ export const NewJourneyPage = (props) => {
       const saveRoute = (event) => {
       event.preventDefault()
 
+
       const user_id = props.user._id
+
 
       const start_place = start_coordinates
       const end_place = end_coordinates
@@ -73,7 +75,10 @@ export const NewJourneyPage = (props) => {
         headers: {
             'Content-type': 'application/json'
         },
-        body: JSON.stringify({host_id: user_id, title: title.value, description: description.value, date: date.value, startPoint: startPoint.value,endPoint: endPoint.value ,discipline: discipline, startTime: startTime.value, start_place: start_place, end_place: end_place})
+
+        body: JSON.stringify({host_id: user_id, title: title.value, description: description.value, startPoint: startPoint.value,endPoint: endPoint.value ,discipline: discipline, startTime: startTime.value, start_place: start_place, end_place: end_place})
+
+       
       })
       .then(response => console.log(response.body))
       .catch((error) => {
