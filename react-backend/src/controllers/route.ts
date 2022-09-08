@@ -23,3 +23,20 @@ export const getRoutes = (req: Request, res: Response) => {
     res.send(routes);
   });
 };
+
+export const addParticipant = (req: Request, res: Response) => {
+  Route.findOneAndUpdate(
+    { _id: req.body._id },
+    {
+      $push: {
+        participants: { userId: req.body.userId },
+      },
+    },
+    function (err) {
+      if (err) {
+        res.status(500).send({ message: err });
+      }
+      res.status(201).send({ message: 'Participant added!' });
+    }
+  );
+};
