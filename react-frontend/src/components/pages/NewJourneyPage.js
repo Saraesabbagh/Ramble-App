@@ -54,7 +54,7 @@ export const NewJourneyPage = (props) => {
 
       const start_place = start_coordinates
       const end_place = end_coordinates
-      const discipline = "cycling"
+      const discipline = "walking"
       const title = event.target.title
       const description = event.target.description
       const date = event.target.date

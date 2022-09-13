@@ -26,7 +26,7 @@ export const getRoutes = (req: Request, res: Response) => {
 
 export const addParticipant = (req: Request, res: Response) => {
   Route.findOneAndUpdate(
-    { _id: req.body._id },
+    { _id: req.body.journeyId },
     {
       $push: {
         participants: { userId: req.body.userId },
