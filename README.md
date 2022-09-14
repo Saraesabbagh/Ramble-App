@@ -10,14 +10,14 @@ We are here to help you find a partner for these activities and make your journe
 
 ***
 <img src="http://ForTheBadge.com/images/badges/built-by-developers.svg">
-
+<a href="https://github.com/Saraesabbagh" >Sara Sabbagh</a>
+<br>
+<a href ="https://github.com/ParisMonson"> Paris Monson </a>
+<br>
+<a href="https://github.com/taybenca">Tayanne Bencardino</a>
+<br>
 <a href="https://github.com/karolina-codes"> Karolina Joksaite</a>
 
-<a href ="https://github.com/ParisMonson"> Paris Monson </a>
-
-<a href="https://github.com/Saraesabbagh" >Sara Sabbagh</a>
-
-<a href="https://github.com/taybenca">Tayanne Bencardino</a>
 ***
 
 ### User story:
