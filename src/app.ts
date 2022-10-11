@@ -88,7 +88,8 @@ app.get("/api/all_routes", routeController.getRoutes);
  */
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "react-frontend/public/index.html"));
+  console.log("About to return index.html");
+  res.sendFile(path.join(__dirname, "..", "react-frontend/build/index.html"));
 });
 
 app.listen(port, () => {
