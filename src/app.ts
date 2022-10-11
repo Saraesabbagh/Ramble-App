@@ -40,7 +40,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, "..", "react-frontend/build")));
+app.use(express.static(path.join(__dirname, "..", "react-frontend", "build")));
 
 const mongoDbUrl = "mongodb://0.0.0.0/Ramble";
 
@@ -88,9 +88,7 @@ app.get("/api/all_routes", routeController.getRoutes);
  */
 
 app.get("*", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "..", "..", "react-frontend/public/index.html")
-  );
+  res.sendFile(path.join(__dirname, "..", "react-frontend/public/index.html"));
 });
 
 app.listen(port, () => {
